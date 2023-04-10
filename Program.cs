@@ -197,12 +197,14 @@ namespace Mainframe
             // Reinicio
             do
             {
+
+                // Menú Principal
+                #region
+
                 // Variables que permiten controlar el menú
                 string menu = "0";
                 int menuConv = 0;
 
-                // Menú Principal
-                #region
                 do
                 {
                     // Título del juego
@@ -913,7 +915,7 @@ namespace Mainframe
                         #endregion
 
                         // Puertos - Espacios
-
+                        #region
                         // Puerto 1 - Nota Músical ////////////////////////////////////////////////////
                         /// /// /// L O R E /// /// ///
 
@@ -1683,6 +1685,7 @@ namespace Mainframe
                             switch9 = false;
                             continue;
                         }
+                        #endregion
                     }
 
                     // Final del Juego ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
