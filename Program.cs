@@ -14,13 +14,11 @@ namespace Mainframe
         {
             // Notas
             // Uso de continue; para regresar al inicio de un loop
-            // Uso de #region y #regionend para organizar el código
-
+            // Uso de #region y #regionend para la organización del código
 
             // Estación de Pruebas
 
-
-            // Introducción ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            // Introducción /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             // Pantalla de Carga
             #region
             Console.ForegroundColor = ConsoleColor.Cyan;
@@ -184,14 +182,18 @@ namespace Mainframe
 
             // Juego ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+            // Variables Prime (Reinicio del juego y Progreso Global)
+            #region
             // bool que permite el reinicio del juego a partir de éste punto
             bool gameReset = true;
 
-            // Variable que permite checar un progreso global del juego
+            // Variable que permite revisar un progreso global del juego
             int progresoGlobal = 0;
             // El progreso estaría basado en la totalidad del juego vista o explorada
             // Se reinicia hasta que se cierra el programa
-            
+            #endregion
+
+
             // Reinicio
             do
             {
@@ -200,6 +202,7 @@ namespace Mainframe
                 int menuConv = 0;
 
                 // Menú Principal
+                #region
                 do
                 {
                     // Título del juego
@@ -246,12 +249,13 @@ namespace Mainframe
                         menuConv = 0;
                 }
                 while (menuConv == 0);
+                #endregion
 
                 // Menú Opción 1 - Juego Nuevo
                 while (menuConv == 1)
                 {
                     // Variables principales
-
+                    #region
                     // Sistema de Progreso
                     int progresoTotal = 0;
                     // El progreso está basado en logros únicos posibles en una misma partida
@@ -276,9 +280,10 @@ namespace Mainframe
                     bool primerBala = true; // Identifica la primer recolección de munición
                     bool primerBateria = true; // Identifica la primer recolección de baterías
                     bool primerBit = true; // Identifica la primer recolección de bits
-
+                    #endregion
 
                     //Intro
+                    #region
                     Thread.Sleep(2000);
                     Console.ForegroundColor = ConsoleColor.Gray;
                     Console.WriteLine("Inicializando procesos...");
@@ -319,8 +324,10 @@ namespace Mainframe
                     Console.WriteLine("Sincronización neuronal completa");
                     Thread.Sleep(2000);
                     Console.Clear();
+                    #endregion
 
                     // Inicio de la historia
+                    #region
                     Thread.Sleep(3000);
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("Recargas por última vez tu revolver digital,");
@@ -335,8 +342,10 @@ namespace Mainframe
                     Console.WriteLine("\nPresiona cualquier tecla para continuar");
                     Console.ReadKey();
                     Console.Clear();
+                    #endregion
 
                     // Primeras decisiones - Introducción a las mecánicas del juego
+                    #region
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Thread.Sleep(1000);
                     Console.WriteLine("Después de avanzar un poco, llegas a lo que parece ser un acceso principal");
@@ -513,8 +522,10 @@ namespace Mainframe
                         Console.ReadKey();
                         Console.Clear();
                     }
+                    #endregion
 
                     // Resultados del tutorial
+                    #region
                     Thread.Sleep(1000);
                     Console.ForegroundColor = ConsoleColor.Cyan;
                     Console.WriteLine("La puerta se cierra justo detrás de tí");
@@ -593,6 +604,10 @@ namespace Mainframe
                     Console.WriteLine("\nPresiona cualquier tecla para continuar");
                     Console.ReadKey();
                     Console.Clear();
+                    #endregion
+
+                    // Inicialización de variables para el juego a partír de éste punto
+                    #region
 
                     // Control de Enemigos
 
@@ -608,14 +623,18 @@ namespace Mainframe
                     // Condición del Enemigo
                     int condicionEnemigo = 0;
 
+                    // En Combate
+                    bool enCombate = false;
+
 
                     // Escenarios programados
                     bool introHertz = true;
                     bool engraneSorpresa = true;
                     bool engraneSorpresa2 = true;
+                    #endregion
 
                     // Inicialización de variables para el manejo del HUB
-
+                    #region
                     // Variable 'menuDelay' controla la velocidad de impresión del menú
                     bool menuDelay = true;
 
@@ -644,12 +663,13 @@ namespace Mainframe
                     bool switch9 = false;
                     bool switch10 = false;
                     bool switch11 = false;
+                    #endregion
 
-                    // Área Central - HUB de Accesos
+                    // HUB Principal - Control de Accesos
                     while (dataCheck)
                     {
                         // Actualiza el nivel de combate de los Enemigos dependiendo de el progreso de la partida
-
+                        #region
                         if (data == 1)
                         {
                             nivelCombate = 2;
@@ -662,8 +682,10 @@ namespace Mainframe
                         {
                             nivelCombate = 4;
                         }
+                        #endregion
 
                         // Recordatorio de Variables
+                        #region
                         Thread.Sleep(1000);
                         Console.ForegroundColor = ConsoleColor.DarkYellow;
                         Console.WriteLine("===========================================================");
@@ -719,9 +741,10 @@ namespace Mainframe
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("Progreso: 100%");
                         }
+                        #endregion
 
                         // Selección de Acceso
-
+                        #region
                         // Cambia la velocidad en la que se despliega el siguiente texto del menú
                         if (menuDelay == true)
                         {
@@ -849,7 +872,7 @@ namespace Mainframe
                         Console.ForegroundColor = ConsoleColor.Yellow;
                         eleccion = Console.ReadLine();
                         Console.Clear();
-    
+
                         // Switch que valida la elección del jugador
                         switch (eleccion)
                         {
@@ -887,12 +910,13 @@ namespace Mainframe
                                 switch11 = true;
                                 break;
                         }
+                        #endregion
 
-                        // Puertos - Espacios ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                        // Puertos - Espacios
 
-                        // Puerto 1 - Nota Músical ////////////////////////////////////////////////////////////
+                        // Puerto 1 - Nota Músical ////////////////////////////////////////////////////
                         /// /// /// L O R E /// /// ///
-                        
+
                         if (switch1 == true)
                         {
                             Thread.Sleep(1000);
@@ -1188,7 +1212,7 @@ namespace Mainframe
                             continue;
                         }
 
-                        // Puerto 2 - Hoja de Árbol ////////////////////////////////////////////////////////////
+                        // Puerto 2 - Hoja de Árbol ///////////////////////////////////////////////////
                         /// /// /// D A T A /// /// ///
                         if (switch2 == true)
                         {
@@ -1254,7 +1278,7 @@ namespace Mainframe
                             }
                         }
 
-                        // Puerto 3 - Cerebro Humano ////////////////////////////////////////////////////////////
+                        // Puerto 3 - Cerebro Humano //////////////////////////////////////////////////
                         if (switch3 == true)
                         {
                             Thread.Sleep(1000);
@@ -1267,7 +1291,7 @@ namespace Mainframe
                             continue;
                         }
 
-                        // Puerto 4 - Engrane ////////////////////////////////////////////////////////////
+                        // Puerto 4 - Engrane /////////////////////////////////////////////////////////
                         /// /// /// D A T A /// /// ///
                         if (switch4 == true)
                         {
@@ -1389,104 +1413,15 @@ namespace Mainframe
                                         if (vidas == 0)
                                         {
                                             Thread.Sleep(2500);
-                                            // Escribe una frase aleatoria
-                                            Console.WriteLine("\n");
-                                            Console.ForegroundColor = ConsoleColor.Red;
-                                            numeroRandom = numRand.Next(1, 9);
-                                            if (numeroRandom == 1)
-                                            {
-                                                Console.WriteLine("Era tu última batería");
-                                                Thread.Sleep(2000);
-                                            }
-                                            else if (numeroRandom == 2)
-                                            {
-                                                Console.WriteLine("Ya no tienes más baterías");
-                                                Thread.Sleep(2000);
-                                            }
-                                            else if (numeroRandom == 3)
-                                            {
-                                                Console.WriteLine("No tienes más baterías");
-                                                Thread.Sleep(2000);
-                                            }
-                                            else if (numeroRandom == 4)
-                                            {
-                                                Console.WriteLine("Error: baterías insuficientes");
-                                                Thread.Sleep(2000);
-                                            }
-                                            else if (numeroRandom == 5)
-                                            {
-                                                Console.WriteLine("Error: energía insuficiente");
-                                                Thread.Sleep(2000);
-                                            }
-                                            else if (numeroRandom == 6)
-                                            {
-                                                Console.WriteLine("No tenías más baterías");
-                                                Thread.Sleep(2000);
-                                            }
-                                            else if (numeroRandom == 7)
-                                            {
-                                                Console.WriteLine("Ya no tenías baterías");
-                                                Thread.Sleep(2000);
-                                            }
-                                            else if (numeroRandom == 8)
-                                            {
-                                                Console.WriteLine("Ya no tienes energía");
-                                                Thread.Sleep(2000);
-                                            }
-
-                                            // Escribe otra frase aleatoria
-                                            Console.WriteLine("\n");
-                                            Console.ForegroundColor = ConsoleColor.Yellow;
-                                            numeroRandom = numRand.Next(1, 9);
-                                            if (numeroRandom == 1)
-                                            {
-                                            Console.WriteLine("El shock neuronal causa el apagado inmediato\nde todos tus sistemas");
-                                            Thread.Sleep(2000);
-                                            }
-                                            else if (numeroRandom == 2)
-                                            {
-                                                Console.WriteLine("Se apagan secuencialmente tus sistemas\nneuronales hasta que dejas de sentir");
-                                                Thread.Sleep(3000);
-                                            }
-                                            else if (numeroRandom == 3)
-                                            {
-                                                Console.WriteLine("Tus sistemas dejan de funcionar en un instánte");
-                                                Thread.Sleep(2000);
-                                            }
-                                            else if (numeroRandom == 4)
-                                            {
-                                                Console.WriteLine("El shock causa una cascada de errores en tus\nsistemas internos, apagándolos secuencialmente\nhasta que dejas de sentir");
-                                                Thread.Sleep(3500);
-                                            }
-                                            else if (numeroRandom == 5)
-                                            {
-                                                Console.WriteLine("Una serie de errores occuren en tu sistema\ny tu cuerpo se apaga por completo");
-                                                Thread.Sleep(3000);
-                                            }
-                                            else if (numeroRandom == 6)
-                                            {
-                                                Console.WriteLine("Se apagan tus sistemas al momento, sin darte\noportunidad de más");
-                                                Thread.Sleep(3000);
-                                            }
-                                            else if (numeroRandom == 7)
-                                            {
-                                                Console.WriteLine("Se apagan todos tus sistemas en un instánte");
-                                                Thread.Sleep(2000);
-                                            }
-                                            else if (numeroRandom == 8)
-                                            {
-                                                Console.WriteLine("Tus sistemas quedan atrapados en un bucle sin fin");
-                                                Thread.Sleep(2000);
-                                            }
-
+                                            GameOver1();
+                                            GameOver2();
                                             Console.ForegroundColor = ConsoleColor.Gray;
                                             Console.WriteLine("\nPresiona cualquier tecla para continuar");
                                             Thread.Sleep(2000);
                                             gameOver = true;
                                             break;
-                                        }
+                                        } 
                                         // Si aún tienes vidas
-                                        // Recordatorio de vidas
                                         else
                                         {
                                             Thread.Sleep(2000);
@@ -1531,16 +1466,17 @@ namespace Mainframe
                                     Console.ForegroundColor = ConsoleColor.Gray;
                                     Console.WriteLine("\nPresiona cualquier tecla para continuar");
                                     Thread.Sleep(3000);
-                                    Console.ForegroundColor = ConsoleColor.Yellow;
                                     Console.ReadKey();
                                     Console.Clear();
 
                                     Thread.Sleep(1000);
+                                    Console.ForegroundColor = ConsoleColor.White;
                                     Console.WriteLine("Bug Verde quiere pelear");
                                     Thread.Sleep(1000);
 
-                                    // Combate Bug Verde
+                                    // Combate
 
+                                    while ()
                                     // Establece propiedades dependiendo del Nivel de Combate
                                     if (nivelCombate == 1)
                                     {
@@ -1567,6 +1503,26 @@ namespace Mainframe
                                         hpEnemigo = numRand.Next(3, 5);
                                         dañoEnemigo = numRand.Next(2, 4);
                                     }
+
+                                    Thread.Sleep(2000);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    if (balas == 0)
+                                    {
+                                        Console.WriteLine("\n1. Disparar");
+                                        Console.WriteLine("2. Intentar evadir");
+                                        Thread.Sleep(3000);
+                                    }
+                                    else
+                                    {
+
+                                        Console.WriteLine("\n1. Disparar\n2. Tratar de huir");
+                                        Thread.Sleep(3000);
+                                    }
+                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                    Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    eleccion = Console.ReadLine();
+                                    Console.Clear();
 
 
                                     // Desactiva el texto descriptivo introductorio
@@ -1609,7 +1565,7 @@ namespace Mainframe
                             continue;
                         }
 
-                        // Puerto 5 - Signo de Interrogación ////////////////////////////////////////////////////////////
+                        // Puerto 5 - Signo de Interrogación //////////////////////////////////////////
                         /// /// /// S H O P /// /// ///
                         if (switch5 == true)
                         {
@@ -1623,7 +1579,7 @@ namespace Mainframe
                             continue;
                         }
 
-                        // Puerto 6 - Gota de Agua ////////////////////////////////////////////////////////////
+                        // Puerto 6 - Gota de Agua ////////////////////////////////////////////////////
                         /// /// /// D A T A /// /// ///
                         if (switch6 == true)
                         {
@@ -1637,7 +1593,7 @@ namespace Mainframe
                             continue;
                         }
 
-                        // Puerto 7 - Microchip ////////////////////////////////////////////////////////////
+                        // Puerto 7 - Microchip ///////////////////////////////////////////////////////
                         /// /// /// D A T A /// /// ///
                         if (switch7 == true)
                         {
@@ -1655,7 +1611,7 @@ namespace Mainframe
                             continue;
                         }
 
-                        // Puerto 8 - Pantalla con Antenas ////////////////////////////////////////////////////////////
+                        // Puerto 8 - Pantalla con Antenas ////////////////////////////////////////////
                         /// /// /// L O R E /// /// ///
                         if (switch8 == true)
                         {
@@ -1669,7 +1625,7 @@ namespace Mainframe
                             continue;
                         }
 
-                        // Puerto 9 - Prisma ////////////////////////////////////////////////////////////
+                        // Puerto 9 - Prisma //////////////////////////////////////////////////////////
                         /// /// /// M I N I /// /// ///
                         if (switch9 == true)
                         {
@@ -1694,7 +1650,7 @@ namespace Mainframe
                             continue;
                         }
 
-                        // Puerto 10 - Estrella ////////////////////////////////////////////////////////////
+                        // Puerto 10 - Estrella ///////////////////////////////////////////////////////
                         /// /// /// D A T A /// /// ///
                         if (switch10 == true)
                         {
@@ -1709,7 +1665,7 @@ namespace Mainframe
                             continue;
                         }
 
-                        // Puerto 11 - Puerto Principal ////////////////////////////////////////////////////////////
+                        // Puerto 11 - Puerto Principal ///////////////////////////////////////////////////////////////////////////////////////////////////////
                         if (switch11 == true)
                         {
                             if (puerto11 == false)
@@ -1887,7 +1843,6 @@ namespace Mainframe
 
             // Loop que reinicia el juego en su totalidad
             while (gameReset);
-
         }
 
         // Métodos estáticos //////////////////////////////////////////////////////////////
