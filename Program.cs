@@ -636,7 +636,11 @@ namespace Mainframe
                     bool introHertz = true;
                     bool engraneSorpresa = true;
                     bool engraneSorpresa2 = true;
+                    bool introTienda = true;
                     #endregion
+
+                    // Tienda
+                    bool menuTienda = true;
 
                     // Inicialización de variables para el manejo del HUB
                     #region
@@ -707,11 +711,11 @@ namespace Mainframe
                         {
                             Console.WriteLine("// Baterías: " + vidas + "   // Balas: " + balas + "   // Llaves: " + data);
                         }
-                        else if (data == 0 && bits >= 0)
+                        else if (data == 0 && primerBit == false)
                         {
                             Console.WriteLine("// Baterías: " + vidas + "   // Balas: " + balas + "   // Bits: " + bits);
                         }
-                        else if (data > 0 && bits >= 0)
+                        else if (data > 0 && primerBit == false)
                         {
                             Console.WriteLine("// Baterías: " + vidas + "   // Balas: " + balas + "   // Llaves: " + data + "   // Bits: " + bits);
                         }
@@ -2546,7 +2550,7 @@ namespace Mainframe
                                                         Console.WriteLine("\n¡Atinas justo en su núcleo!");
                                                     Thread.Sleep(2000);
                                                     Console.ForegroundColor = ConsoleColor.Cyan;
-                                                    Console.WriteLine("\nLe haces daño considerable al enemigo");
+                                                    Console.WriteLine("\nLe haces un daño considerable al enemigo");
                                                     Thread.Sleep(3000);
                                                     hpEnemigo -= 2;
                                                 }
@@ -4722,6 +4726,8 @@ namespace Mainframe
 
                                         // Fin del Combate
                                         #endregion
+
+
                                     }
                                 }
                             }
@@ -4771,8 +4777,179 @@ namespace Mainframe
                             Thread.Sleep(1000);
                             LoadingScreen();
 
+                            // Inicio
+                            {
+                                Console.Clear();
+                                Thread.Sleep(1000);
+                                Console.ForegroundColor = ConsoleColor.Cyan;
 
+                                if (introTienda == true)
+                                {
+                                    Console.WriteLine("Llegas a un lugar con una máquina gigantesca del tamaño\nde un edificio, sin forma visible de accesar a su interior.");
+                                    Thread.Sleep(3000);
+                                    Console.WriteLine("\nEstá completamente cubierta por un muro ancho de metal");
+                                    Thread.Sleep(2000);
+                                    Console.WriteLine("\nEs imposble ver hacia dentro, el único espacio que se ve\ndistinto, es el área en su frente con una pequeña ventanilla");
+                                    Thread.Sleep(3200);
+                                    Console.WriteLine("\nPuedes regresar al control de accesos si así lo prefieres");
+                                    Thread.Sleep(2200);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.WriteLine("\n1. Continuar");
+                                    Console.WriteLine("2. Romper la conexión ahora");
+                                    Thread.Sleep(3000);
+                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                    Console.WriteLine("\nDigita el número de tu elección y presiona Enter");
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    eleccion = Console.ReadLine();
+                                    Console.Clear();
 
+                                    // Decidir no seguir explorando
+                                    if (eleccion == "2")
+                                    {
+                                        Thread.Sleep(2000);
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                        Console.WriteLine("Decides terminar la conexión");
+                                        Thread.Sleep(2000);
+                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                        Console.ReadKey();
+                                        Thread.Sleep(1000);
+                                        Console.Clear();
+
+                                        //Te regresa al menú de puertos y puedes volver a accesar
+                                        Disconnect();
+                                        switch5 = false;
+                                        continue;
+                                    }
+                                    else if (eleccion == "1")
+                                    {
+                                        Thread.Sleep(1000);
+                                    }
+                                    else
+                                    {
+                                        //Te regresa al menú de puertos y puedes volver a accesar
+                                        Thread.Sleep(1000);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.WriteLine("ERROR: Registro Inválido");
+                                        Thread.Sleep(2000);
+                                        Console.WriteLine("Conexión anulada por el servidor");
+                                        Thread.Sleep(2000);
+                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                        Console.WriteLine("Presiona cualquier tecla para desconectarte");
+                                        Console.ReadKey();
+                                        Thread.Sleep(1000);
+
+                                        Disconnect();
+                                        switch5 = false;
+                                        continue;
+                                    }
+
+                                }
+
+                                introTienda = false;
+
+                                while (menuTienda == true)
+                                {
+                                    Thread.Sleep(1000);
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("Te acercas a la ventanilla, en donde puedes ver una\npantalla que muestra el siguiente texto:");
+                                    Thread.Sleep(3000);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.WriteLine("\nBase de Datos");
+                                    Console.WriteLine("\n1. Accesar al almacén");
+                                    Console.WriteLine("2. Soporte técnico");
+                                    Console.WriteLine("3. Cerrar el sistema");
+                                    Thread.Sleep(3000);
+                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                    Console.WriteLine("\nDigita el número de tu elección y presiona Enter");
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    eleccion = Console.ReadLine();
+                                    Console.Clear();
+
+                                    if (eleccion == "1")
+                                    {
+                                        Thread.Sleep(1000);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.WriteLine("Respaldo de Recursos");
+                                        Thread.Sleep(1000);
+                                        Console.WriteLine("\n1. Munición Digital - 1 Bala x 150 Bits");
+                                        Console.WriteLine("2. Munición Digital - 2 Balas x 250 Bits");
+                                        Console.WriteLine("3. Munición Digital - 3 Balas x 400 Bits");
+                                        Console.WriteLine("4. Batería de Energía - 1 Batería x 500 Bits");
+                                        Console.WriteLine("5. Baterías de Energía - 2 Baterías x 850 Bits");
+                                        Console.WriteLine("6. Baterías de Energía - 3 Baterías x 1200 Bits");
+                                        Console.WriteLine("7. Batería de Respaldo - 1 Batería x 1000 Bits");
+                                        Console.WriteLine("8. Programa de Antivirus - 1 Programa x 1500 Bits");
+                                        Console.WriteLine("9. Programa Buscador - Archivo Único x 2000 Bits");
+                                        Console.WriteLine("10. Alimento para Gatos - Archivo Único x 3000 Bits");
+                                        Console.WriteLine("11. Regresar al menú anterior");
+                                        Console.WriteLine("0. Salir de la Base de Datos");
+                                        Thread.Sleep(3000);
+                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                        Console.WriteLine("\nDigita el número de tu elección y presiona Enter");
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        eleccion = Console.ReadLine();
+                                        Console.Clear();
+                                    }
+                                    else if (eleccion == "2")
+                                    {
+                                        Thread.Sleep(1000);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.WriteLine("Documentación de Apoyo");
+                                        Console.WriteLine("\nAccesar a archivos en la base de datos requiere un\nintercambio de información");
+                                        Console.ForegroundColor= ConsoleColor.DarkYellow;
+                                        Console.WriteLine("\nBatería de Respaldo: Le permite al usuario/a recuperar 1\ncarga de Batería durante combate");
+                                        Console.WriteLine("\nPrograma de Antivirus: Elimina instantáneamente cualquier\nprograma malicioso durante combate");
+                                        Console.WriteLine("\nPrograma Buscador: Le indica al usuario/a en dónde hay\narchivos ocultos");
+                                        Console.WriteLine("\nAlimento para Gatos: Uso desconocido");
+                                        Thread.Sleep(3000);
+                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                        Console.WriteLine("\nPresiona cualquier tecla para regresar al menú");
+                                        Console.ReadKey();
+                                        Thread.Sleep(1000);
+                                        Console.Clear();
+                                        continue;
+                                    }
+                                    else if (eleccion == "3")
+                                    {
+                                        Thread.Sleep(2000);
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                        Console.WriteLine("Decides terminar la conexión");
+                                        Thread.Sleep(2000);
+                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                        Console.ReadKey();
+                                        Thread.Sleep(1000);
+                                        Console.Clear();
+
+                                        //Te regresa al menú de puertos y puedes volver a accesar
+                                        Disconnect();
+                                        switch5 = false;
+                                        break;
+                                    }
+
+                                    else
+                                    {
+                                        //Te regresa al menú de puertos y puedes volver a accesar
+                                        Thread.Sleep(1000);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.WriteLine("ERROR: Registro Inválido");
+                                        Thread.Sleep(2000);
+                                        Console.WriteLine("Conexión anulada por el servidor");
+                                        Thread.Sleep(2000);
+                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                        Console.WriteLine("Presiona cualquier tecla para desconectarte");
+                                        Console.ReadKey();
+                                        Thread.Sleep(1000);
+
+                                        Disconnect();
+                                        switch5 = false;
+                                        break;
+                                    }
+
+                                }
+
+                            }
 
                             switch5 = false;
                             continue;
@@ -4928,9 +5105,9 @@ namespace Mainframe
                     Thread.Sleep(200);
                     Console.WriteLine("==================================================================");
                     Thread.Sleep(200);
-                    Console.WriteLine("\nMainframe es un juego de Consola C# en el que manejas un\nprograma que busca controlar la interfaz principal y\ncambiar el curso de la humanidad");
+                    Console.WriteLine("\nMainframe es un juego de Consola C# en el que manejas un\nprograma que busca controlar la interfaz principal para\ncambiar el curso de la humanidad");
                     Thread.Sleep(200);
-                    Console.WriteLine("\nLa aventura se desarrolla en un ambiente noir futurista,\ncon una historia llena de acción y misterio");
+                    Console.WriteLine("\nLa aventura se desarrolla en un ambiente noir retrofuturista\ncon una historia llena de acción y misterio");
                     Thread.Sleep(200);
                     Console.WriteLine("\nTomarás decisiones claves para tu supervivencia, haciendo\nuso de tu inseparable revólver digital para enfrentar\ndiversos retos y cumplir tus objetivos");
                     Thread.Sleep(200);
