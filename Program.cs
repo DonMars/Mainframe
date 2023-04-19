@@ -1161,10 +1161,8 @@ namespace Mainframe
                                     Thread.Sleep(3000);
                                     Console.WriteLine("\nEl único límite, es el tiempo");
                                     Thread.Sleep(3000);
-                                    Console.WriteLine("\n¡Gracias por esperarme!");
-                                    Thread.Sleep(3000);
                                     Console.ForegroundColor = ConsoleColor.White;
-                                    Console.WriteLine("\nParece ser un ente muy inteligente y animado\nsi es que un poco extravagante");
+                                    Console.WriteLine("\nParece ser un ente muy animado\nsi es que un poco extravagante");
                                     Thread.Sleep(3000);
                                     Console.ForegroundColor = ConsoleColor.Gray;
                                     Console.WriteLine("\nPresiona cualquier tecla para continuar");
@@ -1173,10 +1171,16 @@ namespace Mainframe
                                     Console.Clear();
                                 }
 
+                                if (introHertz == true)
+                                {
+                                    Console.WriteLine("¡Gracias por esperarme!\n");
+                                    Thread.Sleep(3200);
+                                }
+
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.WriteLine("Hola, mi nombre es Hertz");
-                                Thread.Sleep(1000);
-                                Console.WriteLine("¿Te importaría charlar conmigo?");
+                                Thread.Sleep(2000);
+                                Console.WriteLine("\n¿Te importaría charlar conmigo?");
                                 Thread.Sleep(2000);
 
                                 if (introHertz == true)
@@ -1198,8 +1202,10 @@ namespace Mainframe
                                 if (introHertz == true)
                                 {
                                     Console.ForegroundColor = ConsoleColor.Blue;
-                                    Console.WriteLine("\nTe has ganado 2000 Bits!");
+                                    Console.WriteLine("\n¡Te has ganado 2000 Bits!");
                                     bits += 2000;
+                                    if (primerBit == true)
+                                        primerBit = false;
                                     Thread.Sleep(3000);
                                     Console.ForegroundColor = ConsoleColor.Yellow;
                                     Console.WriteLine("\n¡Felicidades!");
@@ -1234,21 +1240,23 @@ namespace Mainframe
 
                             // Inicio
                             {
+                                int numeroRandom;
+
                                 Console.Clear();
                                 Thread.Sleep(1000);
                                 Console.ForegroundColor = ConsoleColor.Cyan;
                                 Console.WriteLine("Al llegar notas que estás en lo alto de una\ncascada, en medio de unas montañas");
                                 Thread.Sleep(2500);
-                                Console.WriteLine("\nSientes nauseas y por poco pierdes el balance,\nel suelo de piedra que pisas está resbalosa");
+                                Console.WriteLine("\nSientes nauseas y por poco pierdes el balance,\nel suelo de piedra que pisas está resbaloso");
                                 Thread.Sleep(3000);
                                 Console.WriteLine("\nUnas rocas forman una serie de plataformas que\nte permiten bajar la cascada, puedes intentarlo\ny continuar explorando, o romper la conexión y\nregresar al control de accesos");
                                 Thread.Sleep(5000);
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.WriteLine("\n1. Romper la conexión");
-                                Console.WriteLine("2.Bajar la cascada");
+                                Console.WriteLine("2. Bajar la cascada");
                                 Thread.Sleep(2000);
                                 Console.ForegroundColor = ConsoleColor.Gray;
-                                Console.WriteLine("Digita tu elección y presiona Enter para continuar");
+                                Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
                                 Console.ForegroundColor = ConsoleColor.Yellow;
                                 eleccion = Console.ReadLine();
                                 Console.Clear();
@@ -1279,15 +1287,3964 @@ namespace Mainframe
                                     Console.ForegroundColor = ConsoleColor.Cyan;
                                     Console.WriteLine("Decides continuar explorando el lugar, e intentar\nbajar por la cascada");
                                     Thread.Sleep(3000);
+                                    Console.WriteLine("\nPuedes ver 5 plataformas por las que puedes bajar");
+                                    Thread.Sleep(2200);
+                                    Console.WriteLine("\nAunque si lo intentas podrías errar y hacerte daño");
+                                    Thread.Sleep(3000);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.WriteLine("\n1. Saltar");
+                                    Console.WriteLine("2. Romper la conexión");
+                                    Thread.Sleep(2000);
+                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                    Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    eleccion = Console.ReadLine();
+                                    Console.Clear();
+
+                                    if (eleccion == "2")
+                                    {
+                                        Thread.Sleep(1000);
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                        Console.WriteLine("Decides regresar al control de accesos");
+                                        Thread.Sleep(2000);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.WriteLine("\nAntes de irte, sientes que podrías estar olvidando algo\npero no realizaste ningún cambio al sistema, y puedes\nvolver después si así lo decides");
+                                        Thread.Sleep(4000);
+                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                        Console.ReadKey();
+                                        Thread.Sleep(1000);
+                                        Console.Clear();
+
+                                        //Te regresa al menú de puertos y puedes volver a accesar
+                                        Disconnect();
+                                        switch2 = false;
+                                        continue;
+                                    }
+                                    else if (eleccion == "1")
+                                    {
+                                        Thread.Sleep(1000);
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                        Console.WriteLine("Das un salto intentando llegar a la plataforma, y...");
+                                        Thread.Sleep(2500);
+
+                                        numeroRandom = numRand.Next(1, 101);
+                                        if (numeroRandom > 80)
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.WriteLine("\nte resbalas en el filo de la plataforma\nlastimandote la rodilla");
+                                            Thread.Sleep(3000);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.WriteLine("\nUna de tus baterías absorbe el daño");
+                                            Thread.Sleep(2500);
+                                            vidas -= 1;
+
+                                            // Chequeo de GAME OVER
+                                            if (vidas <= 0)
+                                            {
+                                                Thread.Sleep(2500);
+                                                GameOver1();
+                                                GameOver2();
+                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                Thread.Sleep(2000);
+                                                gameOver = true;
+                                                break;
+                                            }
+                                            // Si aún tienes vidas
+                                            else
+                                            {
+                                                Console.WriteLine("\n");
+                                                Thread.Sleep(2000);
+
+                                                // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                if (vidas >= 4)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    Console.WriteLine("Tienes " + vidas + " baterías");
+                                                }
+
+                                                if (vidas >= 2)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                }
+
+                                                if (vidas < 2)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    Console.WriteLine("Te queda " + vidas + " batería");
+                                                }
+                                                Thread.Sleep(2000);
+                                            }
+
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("\nTe recuperas sin problema y continuas tu camino");
+                                                Thread.Sleep(3000);
+                                        }
+                                        else
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.WriteLine("\nCaes encima de la plataforma con éxito");
+                                            Thread.Sleep(2000);
+                                        }
+
+                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                        Console.WriteLine("\nInmediatamente después hay otra plataforma\na la que puedes saltar");
+                                        Thread.Sleep(3000);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.WriteLine("\n1. Saltar");
+                                        Console.WriteLine("2. Romper la conexión");
+                                        Thread.Sleep(2000);
+                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                        Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        eleccion = Console.ReadLine();
+                                        Console.Clear();
+
+                                        if (eleccion == "2")
+                                        {
+                                            Thread.Sleep(1000);
+                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                            Console.WriteLine("Decides regresar al control de accesos");
+                                            Thread.Sleep(2000);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.WriteLine("\nAntes de irte, sientes que podrías estar olvidando algo\npero no realizaste ningún cambio al sistema, y puedes\nvolver después si así lo decides");
+                                            Thread.Sleep(4000);
+                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                            Console.ReadKey();
+                                            Thread.Sleep(1000);
+                                            Console.Clear();
+
+                                            //Te regresa al menú de puertos y puedes volver a accesar
+                                            Disconnect();
+                                            switch2 = false;
+                                            continue;
+                                        }
+                                        else if (eleccion == "1")
+                                        {
+                                            Thread.Sleep(1000);
+                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                            Console.WriteLine("Das otro salto para llegar a la plataforma y...");
+                                            Thread.Sleep(2500);
+
+                                            numeroRandom = numRand.Next(1, 101);
+                                            if (numeroRandom > 75)
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                Console.WriteLine("\nte tropiezas al caer, lastimandote en el proceso");
+                                                Thread.Sleep(3000);
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                Console.WriteLine("\nUna de tus baterías absorbe el daño");
+                                                Thread.Sleep(2500);
+                                                vidas -= 1;
+
+                                                // Chequeo de GAME OVER
+                                                if (vidas <= 0)
+                                                {
+                                                    Thread.Sleep(2500);
+                                                    GameOver1();
+                                                    GameOver2();
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                    Thread.Sleep(2000);
+                                                    gameOver = true;
+                                                    break;
+                                                }
+                                                // Si aún tienes vidas
+                                                else
+                                                {
+                                                    Console.WriteLine("\n");
+                                                    Thread.Sleep(2000);
+
+                                                    // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                    if (vidas >= 4)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Tienes " + vidas + " baterías");
+                                                    }
+
+                                                    if (vidas >= 2)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                    }
+
+                                                    if (vidas < 2)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Te queda " + vidas + " batería");
+                                                    }
+                                                    Thread.Sleep(2000);
+                                                }
+
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("\nPor suerte no fue grave, y puedes continuar tu camino");
+                                                Thread.Sleep(3000);
+                                            }
+                                            else
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                Console.WriteLine("\nCaes encima de la plataforma sin problemas");
+                                                Thread.Sleep(2000);
+                                            }
+
+                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                            Console.WriteLine("\nLa siguiente plataforma está un poco más lejos");
+                                            Thread.Sleep(2200);
+                                            Console.WriteLine("\nQuizá sea un salto más dificil de realizar con éxito");
+                                            Thread.Sleep(3000);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.WriteLine("\n1. Saltar");
+                                            Console.WriteLine("2. Romper la conexión");
+                                            Thread.Sleep(2000);
+                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                            Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            eleccion = Console.ReadLine();
+                                            Console.Clear();
+
+                                            if (eleccion == "2")
+                                            {
+                                                Thread.Sleep(1000);
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("Decides regresar al control de accesos");
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                Console.WriteLine("\nAntes de irte, sientes que podrías estar olvidando algo\npero no realizaste ningún cambio al sistema, y puedes\nvolver después si así lo decides");
+                                                Thread.Sleep(4000);
+                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                Console.ReadKey();
+                                                Thread.Sleep(1000);
+                                                Console.Clear();
+
+                                                //Te regresa al menú de puertos y puedes volver a accesar
+                                                Disconnect();
+                                                switch2 = false;
+                                                continue;
+                                            }
+                                            else if (eleccion == "1")
+                                            {
+                                                Thread.Sleep(1000);
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("Te impulsas con fuerza, dándo un salto y...");
+                                                Thread.Sleep(2500);
+
+                                                numeroRandom = numRand.Next(1, 101);
+                                                if (numeroRandom > 65)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    Console.WriteLine("\ntu pie se dobla de una forma dolorosa al caer");
+                                                    Thread.Sleep(3000);
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    Console.WriteLine("\nUna de tus baterías absorbe el daño");
+                                                    Thread.Sleep(2500);
+                                                    vidas -= 1;
+
+                                                    // Chequeo de GAME OVER
+                                                    if (vidas <= 0)
+                                                    {
+                                                        Thread.Sleep(2500);
+                                                        GameOver1();
+                                                        GameOver2();
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Thread.Sleep(2000);
+                                                        gameOver = true;
+                                                        break;
+                                                    }
+                                                    // Si aún tienes vidas
+                                                    else
+                                                    {
+                                                        Console.WriteLine("\n");
+                                                        Thread.Sleep(2000);
+
+                                                        // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                        if (vidas >= 4)
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                                            Console.WriteLine("Tienes " + vidas + " baterías");
+                                                        }
+
+                                                        if (vidas >= 2)
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                                            Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                        }
+
+                                                        if (vidas < 2)
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                                            Console.WriteLine("Te queda " + vidas + " batería");
+                                                        }
+                                                        Thread.Sleep(2000);
+                                                    }
+
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("\nRevisas tus tobillos y continuas tu camino");
+                                                    Thread.Sleep(3000);
+                                                }
+                                                else
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    Console.WriteLine("\nCaes en la plataforma sin problema");
+                                                    Thread.Sleep(2000);
+                                                }
+
+                                                numeroRandom = numRand.Next(1,3);
+                                                if (numeroRandom == 1 && vidas < 5)
+                                                {
+                                                        primerBateria = false;
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nUna pequeña luz en la plataforma llama tu atención");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nAl acercarte, notas que es una batería de energía");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                        Thread.Sleep(2000);
+                                                        vidas += 1;
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nAhora tienes " + vidas + " baterías");
+                                                }
+
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("\nYa casi bajas por completo la cascada");
+                                                Thread.Sleep(2000);
+                                                Console.WriteLine("\nQuedan dos plataformas, aunque cada vez están más lejos");
+                                                Thread.Sleep(3000);
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                Console.WriteLine("\n1. Saltar");
+                                                Console.WriteLine("2. Romper la conexión");
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                eleccion = Console.ReadLine();
+                                                Console.Clear();
+
+                                                if (eleccion == "2")
+                                                {
+                                                    Thread.Sleep(1000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("Decides regresar al control de accesos");
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    Console.WriteLine("\nAntes de irte, sientes que podrías estar olvidando algo\npero no realizaste ningún cambio al sistema, y puedes\nvolver después si así lo decides");
+                                                    Thread.Sleep(4000);
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                    Console.ReadKey();
+                                                    Thread.Sleep(1000);
+                                                    Console.Clear();
+
+                                                    //Te regresa al menú de puertos y puedes volver a accesar
+                                                    Disconnect();
+                                                    switch2 = false;
+                                                    continue;
+                                                }
+                                                else if (eleccion == "1")
+                                                {
+                                                    Thread.Sleep(1000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("Tomas unos pasos y das un gran salto");
+                                                    Thread.Sleep(2500);
+
+                                                    numeroRandom = numRand.Next(1, 101);
+                                                    if (numeroRandom > 50)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\npero caes on demasiada fuerza en la plataforma y te lastimas");
+                                                        Thread.Sleep(3000);
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nUna de tus baterías absorbe el daño");
+                                                        Thread.Sleep(2500);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Console.WriteLine("\n");
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nRevisas tus tobillos y continuas tu camino");
+                                                        Thread.Sleep(3000);
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nCaes en la plataforma sin problema");
+                                                        Thread.Sleep(2000);
+                                                    }
+
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("\nYa estás ante el quinto y último salto");
+                                                    Thread.Sleep(2000);
+                                                    Console.WriteLine("\nEs el más dificil hasta ahora, puede que acabes con una herida");
+                                                    Thread.Sleep(3000);
+                                                    Console.WriteLine("\nDesde donde te encuentras, puedes ver un intenso brillo amarillo\nal pie de la cascada");
+                                                    Thread.Sleep(3000);
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    Console.WriteLine("\n1. Saltar");
+                                                    Console.WriteLine("2. Romper la conexión");
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    eleccion = Console.ReadLine();
+                                                    Console.Clear();
+
+                                                    if (eleccion == "2")
+                                                    {
+                                                        Thread.Sleep(1000);
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("Decides regresar al control de accesos");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nAntes de irte, sientes que podrías estar olvidando algo\npero no realizaste ningún cambio al sistema, y puedes\nvolver después si así lo decides");
+                                                        Thread.Sleep(4000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        Thread.Sleep(1000);
+                                                        Console.Clear();
+
+                                                        //Te regresa al menú de puertos y puedes volver a accesar
+                                                        Disconnect();
+                                                        switch2 = false;
+                                                        continue;
+                                                    }
+                                                    else if (eleccion == "1")
+                                                    {
+                                                        Thread.Sleep(1000);
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("Tomas unos pasos y das un gran salto");
+                                                        Thread.Sleep(2500);
+
+                                                        numeroRandom = numRand.Next(1, 101);
+                                                        if (numeroRandom > 40)
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                                            Console.WriteLine("\npero te equivocaste en tus calculos y acabas lastimandote");
+                                                            Thread.Sleep(3000);
+                                                            Console.WriteLine("\nUna de tus baterías absorbe el daño");
+                                                            Thread.Sleep(2500);
+                                                            vidas -= 1;
+
+                                                            // Chequeo de GAME OVER
+                                                            if (vidas <= 0)
+                                                            {
+                                                                Thread.Sleep(2500);
+                                                                GameOver1();
+                                                                GameOver2();
+                                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                                Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                Thread.Sleep(2000);
+                                                                gameOver = true;
+                                                                break;
+                                                            }
+                                                            // Si aún tienes vidas
+                                                            else
+                                                            {
+                                                                Console.WriteLine("\n");
+                                                                Thread.Sleep(2000);
+
+                                                                // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                if (vidas >= 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                }
+
+                                                                if (vidas >= 2)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                }
+
+                                                                if (vidas < 2)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("Te queda " + vidas + " batería");
+                                                                }
+                                                                Thread.Sleep(2000);
+                                                            }
+
+                                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                                            Console.WriteLine("\nPor suerte aún puedes continuar tu camino");
+                                                            Thread.Sleep(3000);
+                                                        }
+                                                        else
+                                                        {
+                                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                                            Console.WriteLine("\nCaes en la plataforma sin problema");
+                                                            Thread.Sleep(2000);
+                                                        }
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nLlegaste a pie de la cascada");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\nPuedes ver en la vegetación un brillo amarillo muy intenso");
+                                                        Thread.Sleep(3000);
+                                                        Console.WriteLine("\nSaltas fuera de la plataforma al suelo, y te\ndiriges hacia el brillo entre las plantas");
+                                                        Thread.Sleep(4000);
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nTe das cuenta que es una llave de acceso");
+                                                        Thread.Sleep(2200);
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nRápidamente la tomas sin pensarlo dos veces");
+                                                        Thread.Sleep(3000);
+                                                        data += 1;
+                                                        // Impide volver a accesar al puerto
+                                                        puerto2 = false;
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\n¡Has encontrado una de las cinco llaves de acceso!");
+                                                        Thread.Sleep(3000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        Thread.Sleep(1000);
+                                                        Console.Clear();
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("Tienes mucho cansancio");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\nPermaneces un tiempo en el lugar apreciando la naturaleza");
+                                                        Thread.Sleep(3200);
+                                                        Console.WriteLine("\nNo recuerdas cuándo fué la última vez que viste un lugar así");
+                                                        Thread.Sleep(3200);
+                                                        Console.WriteLine("\nUna mariposa que vuela en la cercanía llama tu atención\nte hechiza la gracia de su movimiento y el esplendor\nen sus colores...");
+                                                        Thread.Sleep(4500);
+                                                        Console.WriteLine("\nPero algo extraño empieza a suceder");
+                                                        Thread.Sleep(2200);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        Thread.Sleep(1000);
+                                                        Console.Clear();
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("La mariposa comienza a moverse de forma erratica y violenta");
+                                                        Thread.Sleep(2200);
+                                                        Console.WriteLine("\nSus colores cambian frenéticamente y su imagen se distorsiona");
+                                                        Thread.Sleep(3000);
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nSe ha convertido en un glitch!");
+                                                        Thread.Sleep(2200);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        Thread.Sleep(1000);
+                                                        Console.Clear();
+
+                                                        Thread.Sleep(1000);
+                                                        Console.ForegroundColor = ConsoleColor.White;
+                                                        Console.WriteLine("¡Glitch Errante quiere pelear!");
+                                                        Thread.Sleep(3000);
+
+                                                        // Combate
+                                                        #region
+
+                                                        // Pre-establece propiedades del Enemigo dependiendo del Nivel de Combate
+                                                        #region
+                                                        if (nivelCombate == 1)
+                                                        {
+                                                            hpEnemigo = numRand.Next(1, 3);
+                                                            dañoEnemigo = 1;
+                                                        }
+                                                        if (nivelCombate == 2)
+                                                        {
+                                                            hpEnemigo = 2;
+                                                            dañoEnemigo = 1;
+                                                        }
+                                                        if (nivelCombate == 3)
+                                                        {
+                                                            hpEnemigo = numRand.Next(2, 4);
+                                                            dañoEnemigo = numRand.Next(1, 3);
+                                                        }
+                                                        if (nivelCombate == 4)
+                                                        {
+                                                            hpEnemigo = numRand.Next(3, 5); ;
+                                                            dañoEnemigo = 2;
+                                                        }
+                                                        if (nivelCombate == 5)
+                                                        {
+                                                            hpEnemigo = numRand.Next(3, 6);
+                                                            dañoEnemigo = numRand.Next(2, 4);
+                                                        }
+                                                        #endregion
+
+                                                        // Loop de Combate - Se reinicia hasta que el enemigo es vencido
+                                                        #region
+                                                        while (hpEnemigo > 0)
+                                                        {
+                                                            // Recordatorio de Balas y Baterías
+                                                            #region
+                                                            Console.Clear();
+                                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                                            if (balas > 1 && vidas > 1)
+                                                            {
+                                                                Console.WriteLine("Tienes " + balas + " balas, y " + vidas + " baterías");
+                                                            }
+                                                            else if (balas > 1 && vidas == 1)
+                                                            {
+                                                                Console.WriteLine("Tienes " + balas + " balas, y " + vidas + " batería");
+                                                            }
+                                                            else if (balas == 1 && vidas > 1)
+                                                            {
+                                                                Console.WriteLine("Tienes " + balas + " bala, y " + vidas + " baterías");
+                                                            }
+                                                            else if (balas == 0 && vidas > 1)
+                                                            {
+                                                                Console.WriteLine("Ya no tienes balas, y te quedan " + vidas + " baterías");
+                                                            }
+                                                            else if (balas == 0 && vidas == 1)
+                                                            {
+                                                                Console.WriteLine("Ya no tienes balas, y te queda " + vidas + " batería");
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.WriteLine("DEBUG SAFENET: " + balas + " balas / " + vidas + " baterías");
+                                                            }
+                                                            #endregion
+
+                                                            // Menú de Combate
+                                                            #region
+                                                            Thread.Sleep(2000);
+
+                                                            // Muestra la opción de disparar de otro color si no tienes balas
+                                                            if (balas == 0)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                            }
+                                                            Console.WriteLine("\n1. Disparar");
+
+                                                            // Muestra la opción de evadir de otro color si no puedes evadir
+                                                            if (evasionEnemigo == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                            }
+                                                            else
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                            }
+                                                            Console.WriteLine("2. Evadir");
+
+                                                            // Muestra una opción más si tienes algún item que puedes usar durante el Combate
+                                                            if (items == true)
+                                                            {
+                                                                Console.WriteLine("3. Usar Item");
+                                                            }
+
+                                                            // Muestra una opción más si ya no puedes pelear
+                                                            if (items == true && evasionEnemigo == false && balas <= 0)
+                                                            {
+                                                                Console.WriteLine("4. Sin Escape");
+                                                            }
+                                                            if (items == false && evasionEnemigo == false && balas <= 0)
+                                                            {
+                                                                Console.WriteLine("3. Sin Escape");
+                                                            }
+
+                                                            // Muestra una opción más si puedes romper la conexión
+                                                            if ((switch1 == true && escape1 == true) || (switch2 == true && escape2 == true) || (switch3 == true && escape3 == true) || (switch4 == true && escape4 == true) || (switch5 == true && escape5 == true) || (switch6 == true && escape6 == true) || (switch7 == true && escape7 == true) || (switch8 == true && escape8 == true) || (switch9 == true && escape9 == true) || (switch10 == true && escape10 == true))
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                                                Console.WriteLine("0. Romper conexión");
+                                                            }
+
+                                                            Thread.Sleep(2500);
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
+                                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                                            eleccion = Console.ReadLine();
+                                                            Console.Clear();
+
+                                                            // Muestra un mensaje si no tienes munición y reinicia el menú
+                                                            if (eleccion == "1" && balas == 0)
+                                                            {
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nTe has quedado sin munición y no puedes disparar");
+                                                                Thread.Sleep(3000);
+                                                                Console.Clear();
+                                                                continue;
+                                                            }
+
+                                                            // Muestra un mensaje si no puedes evadir la pelea en ese momento y reinicia el menú
+                                                            if (eleccion == "2" && evasionEnemigo == false)
+                                                            {
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nNo puedes evadir la pelea, ¡tus escapes están bloqueados!");
+                                                                Thread.Sleep(3000);
+                                                                Console.Clear();
+                                                                continue;
+                                                            }
+
+                                                            // Intento de Evasión
+                                                            if (eleccion == "2" && evasionEnemigo == true)
+                                                            {
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nIntentas evadir la pelea y escapar");
+                                                                Thread.Sleep(4000);
+
+                                                                // Chance de evasión dependiendo del nivel de Combate
+                                                                numeroRandom = numRand.Next(1, 101);
+                                                                if (nivelCombate == 1)
+                                                                {
+                                                                    if (numeroRandom <= 60)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        break;
+                                                                    }
+                                                                    else if (numeroRandom <= 70)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                                        Thread.Sleep(2000);
+                                                                        vidas -= 1;
+
+                                                                        // Chequeo de GAME OVER
+                                                                        #region
+                                                                        if (vidas <= 0)
+                                                                        {
+                                                                            Thread.Sleep(2500);
+                                                                            GameOver1();
+                                                                            GameOver2();
+                                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                            Thread.Sleep(2000);
+                                                                            gameOver = true;
+                                                                            break;
+                                                                        }
+
+                                                                        // Si aún tienes vidas
+                                                                        else
+                                                                        {
+                                                                            Thread.Sleep(2000);
+
+                                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                            Console.WriteLine("\n");
+                                                                            if (vidas >= 4)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas >= 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas < 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                                            }
+                                                                            Thread.Sleep(2000);
+                                                                        }
+                                                                        #endregion
+
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        break;
+                                                                    }
+                                                                    else if (numeroRandom <= 99)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                                        Thread.Sleep(2000);
+                                                                        vidas -= 1;
+
+                                                                        // Chequeo de GAME OVER
+                                                                        #region
+                                                                        if (vidas <= 0)
+                                                                        {
+                                                                            Thread.Sleep(2500);
+                                                                            GameOver1();
+                                                                            GameOver2();
+                                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                            Thread.Sleep(2000);
+                                                                            gameOver = true;
+                                                                            break;
+                                                                        }
+
+                                                                        // Si aún tienes vidas
+                                                                        else
+                                                                        {
+                                                                            Thread.Sleep(2000);
+
+                                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                            Console.WriteLine("\n");
+                                                                            if (vidas >= 4)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas >= 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas < 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                                            }
+                                                                            Thread.Sleep(2000);
+                                                                        }
+                                                                        #endregion
+
+                                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                                        Thread.Sleep(2000);
+
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        continue;
+                                                                    }
+                                                                    else if (numeroRandom == 100)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                                        Thread.Sleep(3000);
+                                                                        evasionEnemigo = false;
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        continue;
+                                                                    }
+                                                                }
+                                                                if (nivelCombate == 2)
+                                                                {
+                                                                    if (numeroRandom <= 45)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        break;
+                                                                    }
+                                                                    else if (numeroRandom <= 60)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                                        Thread.Sleep(2000);
+                                                                        vidas -= 1;
+
+                                                                        // Chequeo de GAME OVER
+                                                                        #region
+                                                                        if (vidas <= 0)
+                                                                        {
+                                                                            Thread.Sleep(2500);
+                                                                            GameOver1();
+                                                                            GameOver2();
+                                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                            Thread.Sleep(2000);
+                                                                            gameOver = true;
+                                                                            break;
+                                                                        }
+
+                                                                        // Si aún tienes vidas
+                                                                        else
+                                                                        {
+                                                                            Thread.Sleep(2000);
+
+                                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                            Console.WriteLine("\n");
+                                                                            if (vidas >= 4)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas >= 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas < 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                                            }
+                                                                            Thread.Sleep(2000);
+                                                                        }
+                                                                        #endregion
+
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        break;
+                                                                    }
+                                                                    else if (numeroRandom <= 95)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                                        Thread.Sleep(2000);
+                                                                        vidas -= 1;
+
+                                                                        // Chequeo de GAME OVER
+                                                                        #region
+                                                                        if (vidas <= 0)
+                                                                        {
+                                                                            Thread.Sleep(2500);
+                                                                            GameOver1();
+                                                                            GameOver2();
+                                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                            Thread.Sleep(2000);
+                                                                            gameOver = true;
+                                                                            break;
+                                                                        }
+
+                                                                        // Si aún tienes vidas
+                                                                        else
+                                                                        {
+                                                                            Thread.Sleep(2000);
+
+                                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                            Console.WriteLine("\n");
+                                                                            if (vidas >= 4)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas >= 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas < 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                                            }
+                                                                            Thread.Sleep(2000);
+                                                                        }
+                                                                        #endregion
+
+                                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                                        Thread.Sleep(2000);
+
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        continue;
+                                                                    }
+                                                                    else if (numeroRandom <= 100)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                                        Thread.Sleep(3000);
+                                                                        evasionEnemigo = false;
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        continue;
+                                                                    }
+                                                                }
+                                                                if (nivelCombate == 3)
+                                                                {
+                                                                    if (numeroRandom <= 35)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        break;
+                                                                    }
+                                                                    else if (numeroRandom <= 55)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                                        Thread.Sleep(2000);
+                                                                        vidas -= 1;
+
+                                                                        // Chequeo de GAME OVER
+                                                                        #region
+                                                                        if (vidas <= 0)
+                                                                        {
+                                                                            Thread.Sleep(2500);
+                                                                            GameOver1();
+                                                                            GameOver2();
+                                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                            Thread.Sleep(2000);
+                                                                            gameOver = true;
+                                                                            break;
+                                                                        }
+
+                                                                        // Si aún tienes vidas
+                                                                        else
+                                                                        {
+                                                                            Thread.Sleep(2000);
+
+                                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                            Console.WriteLine("\n");
+                                                                            if (vidas >= 4)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas >= 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas < 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                                            }
+                                                                            Thread.Sleep(2000);
+                                                                        }
+                                                                        #endregion
+
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        break;
+                                                                    }
+                                                                    else if (numeroRandom <= 92)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                                        Thread.Sleep(2000);
+                                                                        vidas -= 1;
+
+                                                                        // Chequeo de GAME OVER
+                                                                        #region
+                                                                        if (vidas <= 0)
+                                                                        {
+                                                                            Thread.Sleep(2500);
+                                                                            GameOver1();
+                                                                            GameOver2();
+                                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                            Thread.Sleep(2000);
+                                                                            gameOver = true;
+                                                                            break;
+                                                                        }
+
+                                                                        // Si aún tienes vidas
+                                                                        else
+                                                                        {
+                                                                            Thread.Sleep(2000);
+
+                                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                            Console.WriteLine("\n");
+                                                                            if (vidas >= 4)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas >= 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas < 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                                            }
+                                                                            Thread.Sleep(2000);
+                                                                        }
+                                                                        #endregion
+
+                                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                                        Thread.Sleep(2000);
+
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        continue;
+                                                                    }
+                                                                    else if (numeroRandom <= 100)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                                        Thread.Sleep(3000);
+                                                                        evasionEnemigo = false;
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        continue;
+                                                                    }
+                                                                }
+                                                                if (nivelCombate == 4)
+                                                                {
+                                                                    if (numeroRandom <= 15)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        break;
+                                                                    }
+                                                                    else if (numeroRandom <= 45)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                                        Thread.Sleep(2000);
+                                                                        vidas -= 1;
+
+                                                                        // Chequeo de GAME OVER
+                                                                        #region
+                                                                        if (vidas <= 0)
+                                                                        {
+                                                                            Thread.Sleep(2500);
+                                                                            GameOver1();
+                                                                            GameOver2();
+                                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                            Thread.Sleep(2000);
+                                                                            gameOver = true;
+                                                                            break;
+                                                                        }
+
+                                                                        // Si aún tienes vidas
+                                                                        else
+                                                                        {
+                                                                            Thread.Sleep(2000);
+
+                                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                            Console.WriteLine("\n");
+                                                                            if (vidas >= 4)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas >= 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas < 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                                            }
+                                                                            Thread.Sleep(2000);
+                                                                        }
+                                                                        #endregion
+
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        break;
+                                                                    }
+                                                                    else if (numeroRandom <= 85)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                                        Thread.Sleep(2000);
+                                                                        vidas -= 1;
+
+                                                                        // Chequeo de GAME OVER
+                                                                        #region
+                                                                        if (vidas <= 0)
+                                                                        {
+                                                                            Thread.Sleep(2500);
+                                                                            GameOver1();
+                                                                            GameOver2();
+                                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                            Thread.Sleep(2000);
+                                                                            gameOver = true;
+                                                                            break;
+                                                                        }
+
+                                                                        // Si aún tienes vidas
+                                                                        else
+                                                                        {
+                                                                            Thread.Sleep(2000);
+
+                                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                            Console.WriteLine("\n");
+                                                                            if (vidas >= 4)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas >= 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas < 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                                            }
+                                                                            Thread.Sleep(2000);
+                                                                        }
+                                                                        #endregion
+
+                                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                                        Thread.Sleep(2000);
+
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        continue;
+                                                                    }
+                                                                    else if (numeroRandom <= 100)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                                        Thread.Sleep(3000);
+                                                                        evasionEnemigo = false;
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        continue;
+                                                                    }
+                                                                }
+                                                                if (nivelCombate == 5)
+                                                                {
+                                                                    if (numeroRandom <= 5)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        break;
+                                                                    }
+                                                                    else if (numeroRandom <= 20)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                                        Thread.Sleep(2000);
+                                                                        vidas -= 1;
+
+                                                                        // Chequeo de GAME OVER
+                                                                        #region
+                                                                        if (vidas <= 0)
+                                                                        {
+                                                                            Thread.Sleep(2500);
+                                                                            GameOver1();
+                                                                            GameOver2();
+                                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                            Thread.Sleep(2000);
+                                                                            gameOver = true;
+                                                                            break;
+                                                                        }
+
+                                                                        // Si aún tienes vidas
+                                                                        else
+                                                                        {
+                                                                            Thread.Sleep(2000);
+
+                                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                            Console.WriteLine("\n");
+                                                                            if (vidas >= 4)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas >= 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas < 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                                            }
+                                                                            Thread.Sleep(2000);
+                                                                        }
+                                                                        #endregion
+
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        break;
+                                                                    }
+                                                                    else if (numeroRandom <= 70)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                                        Thread.Sleep(2000);
+                                                                        vidas -= 1;
+
+                                                                        // Chequeo de GAME OVER
+                                                                        #region
+                                                                        if (vidas <= 0)
+                                                                        {
+                                                                            Thread.Sleep(2500);
+                                                                            GameOver1();
+                                                                            GameOver2();
+                                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                            Thread.Sleep(2000);
+                                                                            gameOver = true;
+                                                                            break;
+                                                                        }
+
+                                                                        // Si aún tienes vidas
+                                                                        else
+                                                                        {
+                                                                            Thread.Sleep(2000);
+
+                                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                            Console.WriteLine("\n");
+                                                                            if (vidas >= 4)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas >= 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                            }
+
+                                                                            if (vidas < 2)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                                            }
+                                                                            Thread.Sleep(2000);
+                                                                        }
+                                                                        #endregion
+
+                                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                                        Thread.Sleep(2000);
+
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        continue;
+                                                                    }
+                                                                    else if (numeroRandom <= 100)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                                        Thread.Sleep(2000);
+                                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                                        Thread.Sleep(3000);
+                                                                        evasionEnemigo = false;
+                                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                        Console.ReadKey();
+                                                                        continue;
+                                                                    }
+                                                                }
+                                                                Console.Clear();
+                                                                continue;
+                                                            }
+
+                                                            // Uso de Items (NULL)
+                                                            if (eleccion == "3" && items == true)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                                Console.WriteLine("\nITEMS");
+                                                                Thread.Sleep(2000);
+                                                                Console.ReadKey();
+                                                                Thread.Sleep(1000);
+                                                                continue;
+                                                            }
+                                                            if (eleccion == "3" && items == false && evasionEnemigo == false && balas <= 0)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                                Console.WriteLine("\nSe terminaron tus balas y no puedes huir");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nEl enemigo aprovecha la situación y te ataca\nlogrando hacerte suficiente daño para terminar\ntu ejecución");
+                                                                Thread.Sleep(2000);
+                                                                gameOver = true;
+                                                                break;
+                                                            }
+
+                                                            // Ruptura de Conexión Única por Puerto
+                                                            if ((eleccion == "0" && switch1 == true && escape1 == true) || (eleccion == "0" && switch2 == true && escape2 == true) || (eleccion == "0" && switch3 == true && escape3 == true) || (eleccion == "0" && switch4 == true && escape4 == true) || (eleccion == "0" && switch5 == true && escape5 == true) || (eleccion == "0" && switch6 == true && escape6 == true) || (eleccion == "0" && switch7 == true && escape7 == true) || (eleccion == "0" && switch8 == true && escape8 == true) || (eleccion == "0" && switch9 == true && escape9 == true) || (eleccion == "0" && switch10 == true && escape10 == true))
+                                                            {
+                                                                Thread.Sleep(2000);
+                                                                Console.Clear();
+                                                                Thread.Sleep(1000);
+                                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                                Console.WriteLine("ADVERTENCIA: Romper tu conexión durante momentos de alta concentración\nde energía causa una sobrecarga que daña el puerto de manera permanente");
+                                                                Thread.Sleep(3000);
+                                                                Console.WriteLine("\nLa sobrecarga puede llegar a afectar el flujo de energía en tus sistemas");
+                                                                Thread.Sleep(3000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nPuedes romper tu conexión y regresar al control de accesos de ésta\nforma unicamente una vez por cada puerto");
+                                                                Thread.Sleep(2500);
+                                                                Console.WriteLine("\nEs posible que la sobrecarga afecte la energía de tus baterías");
+                                                                Thread.Sleep(2500);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\n1. Continuar y romper la conexión");
+                                                                Console.WriteLine("2. Regresar");
+                                                                Thread.Sleep(3000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                eleccion = Console.ReadLine();
+                                                                Thread.Sleep(2000);
+
+                                                                // Decidir Romper la Conexión durante el Combate
+                                                                if (eleccion == "1")
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nDecides terminar la conexión");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                    Thread.Sleep(3000);
+                                                                    Console.ReadKey();
+                                                                    Console.Clear();
+
+                                                                    // Bloquea la capacidad de romper conexión durante combate en ese puerto
+                                                                    #region
+                                                                    if (switch1 == true)
+                                                                    {
+                                                                        escapeUnico = true;
+                                                                        escape1 = false;
+                                                                    }
+                                                                    if (switch2 == true)
+                                                                    {
+                                                                        escapeUnico = true;
+                                                                        escape2 = false;
+                                                                    }
+                                                                    if (switch3 == true)
+                                                                    {
+                                                                        escapeUnico = true;
+                                                                        escape3 = false;
+                                                                    }
+                                                                    if (switch4 == true)
+                                                                    {
+                                                                        escapeUnico = true;
+                                                                        escape4 = false;
+                                                                    }
+                                                                    if (switch5 == true)
+                                                                    {
+                                                                        escapeUnico = true;
+                                                                        escape5 = false;
+                                                                    }
+                                                                    if (switch6 == true)
+                                                                    {
+                                                                        escapeUnico = true;
+                                                                        escape6 = false;
+                                                                    }
+                                                                    if (switch7 == true)
+                                                                    {
+                                                                        escapeUnico = true;
+                                                                        escape7 = false;
+                                                                    }
+                                                                    if (switch8 == true)
+                                                                    {
+                                                                        escapeUnico = true;
+                                                                        escape8 = false;
+                                                                    }
+                                                                    if (switch9 == true)
+                                                                    {
+                                                                        escapeUnico = true;
+                                                                        escape9 = false;
+                                                                    }
+                                                                    if (switch10 == true)
+                                                                    {
+                                                                        escapeUnico = true;
+                                                                        escape10 = false;
+                                                                    }
+                                                                    #endregion
+
+                                                                    // Rompe el sistema de combate
+                                                                    break;
+                                                                }
+
+                                                                if (eleccion == "2")
+                                                                {
+                                                                    continue;
+                                                                }
+                                                            }
+
+                                                            // Fin Menú de Combate
+                                                            #endregion
+
+                                                            // Comienzo del Combate - Ataque del Jugador
+                                                            #region
+                                                            if (eleccion == "1" && balas > 0)
+                                                            {
+                                                                balas -= 1;
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                numeroRandom = numRand.Next(1, 6);
+                                                                if (numeroRandom == 1)
+                                                                    Console.WriteLine("Atacas al enemigo y...");
+                                                                if (numeroRandom == 2)
+                                                                    Console.WriteLine("Le disparas al enemigo");
+                                                                if (numeroRandom == 3)
+                                                                    Console.WriteLine("Apuntas con rapidez y disparas");
+                                                                if (numeroRandom == 4)
+                                                                    Console.WriteLine("Apuntas y disparas...");
+                                                                if (numeroRandom == 5)
+                                                                    Console.WriteLine("Disparas con tu revólver...");
+                                                                Thread.Sleep(3000);
+
+                                                                numeroRandom = numRand.Next(1, 21);
+
+                                                                if (numeroRandom <= 15)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\n¡Logras atinar el disparo!");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\n¡Atinas el disparo!");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\n¡Le das con precisión!");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\n¡La bala hace contacto!");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\n¡Le pegas!");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLe haces daño al enemigo");
+                                                                    Thread.Sleep(3000);
+                                                                    hpEnemigo -= 1;
+                                                                }
+                                                                else if (numeroRandom <= 19)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\n¡Fallas el disparo!");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\n¡La bala roza al enemigo!");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\n¡El enemigo esquiva la bala!");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\n¡No logras darle!");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\n¡Fallas por poco!");
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nNo logras hacerle daño al enemigo");
+                                                                    Thread.Sleep(3000);
+                                                                }
+                                                                else if (numeroRandom == 20)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\n¡El disparo dá en un lugar crítico!");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\n¡Le das en el centro del núcleo!");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\n¡Atinas en su punto debil!");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\n¡Le das con gran precisión!");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\n¡Atinas justo en su núcleo!");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLe haces un daño considerable al enemigo");
+                                                                    Thread.Sleep(3000);
+                                                                    hpEnemigo -= 2;
+                                                                }
+
+                                                                Console.Clear();
+                                                                Thread.Sleep(2000);
+                                                            }
+                                                            #endregion
+
+                                                            // Contraataque Enemigo
+                                                            #region
+                                                            if (hpEnemigo > 0 && nivelCombate == 2)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 11);
+                                                                if (numeroRandom <= 2)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\n¡El enemigo contraataca!");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\n¡El enemigo hace un contraataque!");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\n¡El enemigo ataca de regreso!");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\n¡El enemigo ataca de vuelta!");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\n¡El enemigo te contraataca!");
+
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                                    vidas -= 1;
+                                                                }
+                                                            }
+
+                                                            if (hpEnemigo > 0 && nivelCombate == 3)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 11);
+                                                                if (numeroRandom <= 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\n¡El enemigo contraataca!");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\n¡El enemigo hace un contraataque!");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\n¡El enemigo ataca de regreso!");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\n¡El enemigo ataca de vuelta!");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\n¡El enemigo te contraataca!");
+
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                                    vidas -= 1;
+                                                                }
+                                                            }
+
+                                                            if (hpEnemigo > 0 && nivelCombate == 4)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 11);
+                                                                if (numeroRandom <= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\n¡El enemigo contraataca!");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\n¡El enemigo hace un contraataque!");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\n¡El enemigo ataca de regreso!");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\n¡El enemigo ataca de vuelta!");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\n¡El enemigo te contraataca!");
+
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                                    vidas -= 1;
+                                                                }
+                                                            }
+
+                                                            if (hpEnemigo > 0 && nivelCombate == 5)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 11);
+                                                                if (numeroRandom <= 7)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\n¡El enemigo contraataca!");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\n¡El enemigo hace un contraataque!");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\n¡El enemigo ataca de regreso!");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\n¡El enemigo ataca de vuelta!");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\n¡El enemigo te contraataca!");
+
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                                    vidas -= 1;
+                                                                }
+                                                            }
+                                                            #endregion
+
+                                                            // Posibilidad de un segundo contraattaque
+                                                            #region
+                                                            if (nivelCombate == 2)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 100);
+                                                                if (numeroRandom <= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\n¡El enemigo ataca de nuevo!");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\n¡El enemigo vuelve a atacar!");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\n¡El enemigo te ataca otra vez!");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\n¡El enemigo aprovecha para atacar de nuevo!");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\n¡El enemigo ataca otra vez!");
+
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                                    vidas -= 1;
+                                                                }
+                                                            }
+
+                                                            if (nivelCombate == 3)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 100);
+                                                                if (numeroRandom <= 10)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\n¡El enemigo ataca de nuevo!");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\n¡El enemigo vuelve a atacar!");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\n¡El enemigo te ataca otra vez!");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\n¡El enemigo aprovecha para atacar de nuevo!");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\n¡El enemigo ataca otra vez!");
+
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                                    vidas -= 1;
+                                                                }
+                                                            }
+
+                                                            if (nivelCombate == 4)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 100);
+                                                                if (numeroRandom <= 15)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\n¡El enemigo ataca de nuevo!");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\n¡El enemigo vuelve a atacar!");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\n¡El enemigo te ataca otra vez!");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\n¡El enemigo aprovecha para atacar de nuevo!");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\n¡El enemigo ataca otra vez!");
+
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                                    vidas -= 1;
+                                                                }
+                                                            }
+
+                                                            if (nivelCombate == 5)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 100);
+                                                                if (numeroRandom <= 20)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\n¡El enemigo ataca de nuevo!");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\n¡El enemigo vuelve a atacar!");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\n¡El enemigo te ataca otra vez!");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\n¡El enemigo aprovecha para atacar de nuevo!");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\n¡El enemigo ataca otra vez!");
+
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    numeroRandom = numRand.Next(1, 6);
+                                                                    if (numeroRandom == 1)
+                                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                                    if (numeroRandom == 2)
+                                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                                    if (numeroRandom == 3)
+                                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                                    if (numeroRandom == 4)
+                                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                                    if (numeroRandom == 5)
+                                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                                    vidas -= 1;
+                                                                }
+                                                            }
+                                                            #endregion
+
+                                                            continue;
+                                                        }
+                                                        // Fin loop de Combate
+                                                        #endregion
+
+                                                        // Desconexión única durante el Combate
+                                                        if (escapeUnico == true)
+                                                        {
+                                                            Disconnect();
+                                                            numeroRandom = numRand.Next(1, 21);
+
+                                                            if (numeroRandom == 20)
+                                                            {
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                                Console.WriteLine("La sobrecarga es demasiado fuerte, y afecta 2 de tus baterías");
+                                                                Thread.Sleep(2000);
+                                                                vidas -= 2;
+
+                                                                // Chequeo de GAME OVER
+                                                                #region
+                                                                if (vidas <= 0)
+                                                                {
+                                                                    Thread.Sleep(2500);
+                                                                    GameOver1();
+                                                                    GameOver2();
+                                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                    Thread.Sleep(2000);
+                                                                    gameOver = true;
+                                                                    break;
+                                                                }
+                                                                // Si aún tienes vidas
+                                                                else
+                                                                {
+                                                                    Thread.Sleep(2000);
+
+                                                                    // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                    if (vidas >= 4)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                    }
+
+                                                                    if (vidas >= 2)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                    }
+
+                                                                    if (vidas < 2)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("Te queda " + vidas + " batería");
+                                                                    }
+
+                                                                    Thread.Sleep(2000);
+
+                                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ReadKey();
+                                                                    Console.Clear();
+                                                                }
+                                                                #endregion
+                                                            }
+
+                                                            else if (numeroRandom <= 10)
+                                                            {
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                                Console.WriteLine("La sobrecarga afecta una de tus baterías,\nfiltrando de golpe su energía");
+                                                                Thread.Sleep(2000);
+                                                                vidas -= 1;
+
+                                                                // Chequeo de GAME OVER
+                                                                #region
+                                                                if (vidas <= 0)
+                                                                {
+                                                                    Thread.Sleep(2500);
+                                                                    GameOver1();
+                                                                    GameOver2();
+                                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                    Thread.Sleep(2000);
+                                                                    gameOver = true;
+                                                                    break;
+                                                                }
+
+                                                                // Si aún tienes vidas
+                                                                else
+                                                                {
+                                                                    Thread.Sleep(2000);
+
+                                                                    // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                                    if (vidas >= 4)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("Tienes " + vidas + " baterías");
+                                                                    }
+
+                                                                    if (vidas >= 2)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                                    }
+
+                                                                    if (vidas < 2)
+                                                                    {
+                                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                        Console.WriteLine("Te queda " + vidas + " batería");
+                                                                    }
+                                                                    Thread.Sleep(2000);
+
+                                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ReadKey();
+                                                                    Console.Clear();
+
+                                                                }
+                                                                #endregion
+                                                            }
+
+                                                            escapeUnico = false;
+
+                                                            // Envía al Game Over desde el Combate
+                                                            if (gameOver == true)
+                                                            {
+                                                                break;
+                                                            }
+
+                                                            // Te regresa al control de accesos
+                                                            continue;
+
+                                                        }
+
+                                                        // Revisa si venciste al Enemigo
+                                                        if (hpEnemigo <= 0)
+                                                        {
+                                                            ganarCombate = true;
+                                                            Thread.Sleep(1000);
+                                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                                            numeroRandom = numRand.Next(1, 6);
+                                                            if (numeroRandom == 1)
+                                                                Console.WriteLine("¡Ganaste el combate!");
+                                                            if (numeroRandom == 2)
+                                                                Console.WriteLine("Has ganado el combate");
+                                                            if (numeroRandom == 3)
+                                                                Console.WriteLine("Venciste al enemigo");
+                                                            if (numeroRandom == 4)
+                                                                Console.WriteLine("Has vencido al enemigo");
+                                                            if (numeroRandom == 5)
+                                                                Console.WriteLine("¡Ganas el combate!");
+                                                            Thread.Sleep(2000);
+                                                            Console.Clear();
+                                                        }
+
+                                                        // Post-Combate
+
+                                                        // Recompensa aleatoria si el Enemigo es vencido
+                                                        if (ganarCombate == true)
+                                                        {
+                                                            // Chance de obtener recompensa
+                                                            #region
+                                                            if (nivelCombate == 1)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 101);
+
+                                                                if (numeroRandom <= 85)
+                                                                {
+                                                                    combateRecompensa = true;
+                                                                }
+                                                                else if (numeroRandom <= 100)
+                                                                {
+                                                                    // No hay recompensa
+                                                                }
+                                                            }
+                                                            else if (nivelCombate == 2)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 101);
+
+                                                                if (numeroRandom <= 75)
+                                                                {
+                                                                    combateRecompensa = true;
+                                                                }
+                                                                else if (numeroRandom <= 100)
+                                                                {
+                                                                    // No hay recompensa
+                                                                }
+                                                            }
+                                                            else if (nivelCombate == 3)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 101);
+
+                                                                if (numeroRandom <= 70)
+                                                                {
+                                                                    combateRecompensa = true;
+                                                                }
+                                                                else if (numeroRandom <= 100)
+                                                                {
+                                                                    // No hay recompensa
+                                                                }
+                                                            }
+                                                            else if (nivelCombate == 4)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 101);
+
+                                                                if (numeroRandom <= 65)
+                                                                {
+                                                                    combateRecompensa = true;
+                                                                }
+                                                                else if (numeroRandom <= 100)
+                                                                {
+                                                                    // No hay recompensa
+                                                                }
+                                                            }
+                                                            else if (nivelCombate == 5)
+                                                            {
+                                                                numeroRandom = numRand.Next(1, 101);
+
+                                                                if (numeroRandom <= 50)
+                                                                {
+                                                                    combateRecompensa = true;
+                                                                }
+                                                                else if (numeroRandom <= 100)
+                                                                {
+                                                                    // No hay recompensa
+                                                                }
+                                                            }
+                                                            #endregion
+
+                                                            // Recompensas
+                                                            #region
+                                                            if (combateRecompensa == true)
+                                                            {
+                                                                Thread.Sleep(2000);
+                                                                if (nivelCombate == 1)
+                                                                {
+                                                                    numeroRandom = numRand.Next(1, 101);
+
+                                                                    if (numeroRandom <= 85)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 13);
+                                                                        if (numeroRandom <= 5)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                                            }
+                                                                            balas += 1;
+                                                                        }
+                                                                        else if (numeroRandom <= 6)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                                            }
+                                                                            balas += 2;
+                                                                        }
+                                                                        else if (numeroRandom <= 9)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 50 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 50 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 50 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 50;
+                                                                        }
+                                                                        else if (numeroRandom <= 12)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 100 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 100 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 100 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 100;
+                                                                        }
+                                                                    }
+                                                                    else if (numeroRandom <= 100)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 9);
+                                                                        if (numeroRandom <= 5)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                                            }
+                                                                            balas += 2;
+                                                                        }
+                                                                        if (numeroRandom <= 8)
+                                                                        {
+                                                                            if (primerBateria == true)
+                                                                            {
+                                                                                primerBateria = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                            else if (primerBateria == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                                else if (nivelCombate == 2)
+                                                                {
+                                                                    numeroRandom = numRand.Next(1, 101);
+                                                                    if (numeroRandom <= 75)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 13);
+                                                                        if (numeroRandom <= 5)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                                            }
+                                                                            balas += 1;
+                                                                        }
+                                                                        else if (numeroRandom <= 7)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                                            }
+                                                                            balas += 2;
+                                                                        }
+                                                                        else if (numeroRandom <= 9)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 150 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 150 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 150 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 150;
+                                                                        }
+                                                                        else if (numeroRandom <= 11)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 200 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 200 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 200 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 200;
+                                                                        }
+                                                                        else if (numeroRandom <= 12)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 250 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 250 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 250 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 250;
+                                                                        }
+                                                                    }
+                                                                    else if (numeroRandom <= 97)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 9);
+                                                                        if (numeroRandom <= 4)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                                            }
+                                                                            balas += 2;
+                                                                        }
+                                                                        else if (numeroRandom <= 8)
+                                                                        {
+                                                                            if (primerBateria == true)
+                                                                            {
+                                                                                primerBateria = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                            else if (primerBateria == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    else if (numeroRandom <= 100)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 7);
+                                                                        if (numeroRandom == 1)
+                                                                        {
+                                                                            if (primerBateria == true)
+                                                                            {
+                                                                                primerBateria = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras dos\nbaterías cargadas con energía");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 4)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 2;
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería restante se deshace en ceros y unos");
+                                                                                }
+                                                                            }
+                                                                            else if (primerBateria == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras dos baterías");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 4)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 2;
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        else if (numeroRandom <= 5)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 500 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 500 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 500;
+                                                                        }
+                                                                        else if (numeroRandom == 6)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 800 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 800 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 800;
+                                                                        }
+                                                                    }
+                                                                }
+                                                                else if (nivelCombate == 3)
+                                                                {
+                                                                    numeroRandom = numRand.Next(1, 101);
+                                                                    if (numeroRandom <= 60)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 13);
+                                                                        if (numeroRandom <= 3)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                                            }
+                                                                            balas += 1;
+                                                                        }
+                                                                        else if (numeroRandom <= 7)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                                            }
+                                                                            balas += 2;
+                                                                        }
+                                                                        else if (numeroRandom <= 9)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 300 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 300 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 300 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 300;
+                                                                        }
+                                                                        else if (numeroRandom <= 12)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 350 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 350 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 350 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 350;
+                                                                        }
+                                                                    }
+                                                                    else if (numeroRandom <= 93)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 9);
+                                                                        if (numeroRandom <= 4)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                                            }
+                                                                            balas += 2;
+                                                                        }
+                                                                        else if (numeroRandom <= 8)
+                                                                        {
+                                                                            if (primerBateria == true)
+                                                                            {
+                                                                                primerBateria = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                            else if (primerBateria == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    else if (numeroRandom <= 100)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 8);
+                                                                        if (numeroRandom <= 2)
+                                                                        {
+                                                                            if (primerBateria == true)
+                                                                            {
+                                                                                primerBateria = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras dos\nbaterías cargadas con energía");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 4)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 2;
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería restante se deshace en ceros y unos");
+                                                                                }
+                                                                            }
+                                                                            else if (primerBateria == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras dos baterías");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 4)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 2;
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        else if (numeroRandom <= 5)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 500 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 500 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 500;
+                                                                        }
+                                                                        else if (numeroRandom == 6)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 800 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 800 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 800;
+                                                                        }
+                                                                        else if (numeroRandom == 7)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 1000 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 1000 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 1000 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 1000;
+                                                                        }
+                                                                    }
+                                                                }
+                                                                else if (nivelCombate == 4)
+                                                                {
+                                                                    numeroRandom = numRand.Next(1, 101);
+                                                                    if (numeroRandom <= 45)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 13);
+                                                                        if (numeroRandom <= 2)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                                            }
+                                                                            balas += 1;
+                                                                        }
+                                                                        else if (numeroRandom <= 5)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                                            }
+                                                                            balas += 2;
+                                                                        }
+                                                                        else if (numeroRandom <= 9)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 400 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 400 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 400 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 400;
+                                                                        }
+                                                                        else if (numeroRandom <= 12)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 450 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 450 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 450 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 450;
+                                                                        }
+                                                                    }
+                                                                    else if (numeroRandom <= 87)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 9);
+                                                                        if (numeroRandom <= 3)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                                            }
+                                                                            balas += 2;
+                                                                        }
+                                                                        else if (numeroRandom <= 8)
+                                                                        {
+                                                                            if (primerBateria == true)
+                                                                            {
+                                                                                primerBateria = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                            else if (primerBateria == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    else if (numeroRandom <= 100)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 8);
+                                                                        if (numeroRandom <= 3)
+                                                                        {
+                                                                            if (primerBateria == true)
+                                                                            {
+                                                                                primerBateria = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras dos\nbaterías cargadas con energía");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 4)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 2;
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería restante se deshace en ceros y unos");
+                                                                                }
+                                                                            }
+                                                                            else if (primerBateria == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras dos baterías");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 4)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 2;
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        else if (numeroRandom <= 5)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 500 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 500 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 500;
+                                                                        }
+                                                                        else if (numeroRandom == 6)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 800 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 800 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 800;
+                                                                        }
+                                                                        else if (numeroRandom == 7)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 1000 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 1000 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 1000 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 1000;
+                                                                        }
+                                                                    }
+                                                                }
+                                                                else if (nivelCombate == 5)
+                                                                {
+                                                                    numeroRandom = numRand.Next(1, 101);
+                                                                    if (numeroRandom <= 30)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 13);
+                                                                        if (numeroRandom <= 2)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                                            }
+                                                                            balas += 1;
+                                                                        }
+                                                                        else if (numeroRandom <= 5)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                                            }
+                                                                            balas += 2;
+                                                                        }
+                                                                        else if (numeroRandom <= 9)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 400 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 400 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 400 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 400;
+                                                                        }
+                                                                        else if (numeroRandom <= 12)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 450 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 450 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 450 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 450;
+                                                                        }
+                                                                    }
+                                                                    else if (numeroRandom <= 83)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 9);
+                                                                        if (numeroRandom <= 2)
+                                                                        {
+                                                                            if (primerBala == true)
+                                                                            {
+                                                                                primerBala = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                                            }
+                                                                            else if (primerBala == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                                            }
+                                                                            balas += 2;
+                                                                        }
+                                                                        else if (numeroRandom <= 8)
+                                                                        {
+                                                                            if (primerBateria == true)
+                                                                            {
+                                                                                primerBateria = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                            else if (primerBateria == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    else if (numeroRandom <= 100)
+                                                                    {
+                                                                        numeroRandom = numRand.Next(1, 8);
+                                                                        if (numeroRandom <= 2)
+                                                                        {
+                                                                            if (primerBateria == true)
+                                                                            {
+                                                                                primerBateria = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras dos\nbaterías cargadas con energía");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 4)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 2;
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLa batería restante se deshace en ceros y unos");
+                                                                                }
+                                                                            }
+                                                                            else if (primerBateria == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras dos baterías");
+                                                                                Thread.Sleep(2000);
+                                                                                if (vidas >= 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                                }
+                                                                                else if (vidas < 4)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 2;
+                                                                                }
+                                                                                else if (vidas < 5)
+                                                                                {
+                                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                                    Thread.Sleep(2000);
+                                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                                    vidas += 1;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        else if (numeroRandom <= 5)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 800 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 800 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 800 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 800;
+                                                                        }
+                                                                        else if (numeroRandom == 6)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 1000 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 1000 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 1000 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 1000;
+                                                                        }
+                                                                        else if (numeroRandom == 7)
+                                                                        {
+                                                                            if (primerBit == true)
+                                                                            {
+                                                                                primerBit = false;
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 1200 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.WriteLine("\nLos recolectas, agregando 1200 Bits a tus recursos");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                                            }
+                                                                            else if (primerBit == false)
+                                                                            {
+                                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                                Console.WriteLine("Revisas el área y encuentras 1200 Bits");
+                                                                                Thread.Sleep(2000);
+                                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                                            }
+                                                                            bits += 1200;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                            #endregion
+
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            Console.ReadKey();
+                                                            Console.Clear();
+                                                        }
+
+                                                        // Resetea algunos sistemas para el siguiente enemigo
+                                                        evasionEnemigo = true;
+                                                        ganarCombate = false;
+                                                        combateRecompensa = false;
+
+                                                        // Limpia la pantalla
+                                                        Console.Clear();
+
+                                                        // Fin del Combate
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("Has tenido suficiente y regresas al control de accesos");
+                                                        Thread.Sleep(2200);
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para desconectarte");
+                                                        Console.ReadKey();
+                                                        Thread.Sleep(1000);
+
+                                                        Disconnect();
+                                                        puerto2 = false;
+                                                        continue;
+
+                                                    }
+                                                    else
+                                                    {
+                                                        //Te regresa al menú de puertos y puedes volver a accesar
+                                                        Thread.Sleep(1000);
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("ERROR: Registro Inválido");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("Conexión anulada por el servidor");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("Presiona cualquier tecla para desconectarte");
+                                                        Console.ReadKey();
+                                                        Thread.Sleep(1000);
+
+                                                        Disconnect();
+                                                        switch2 = false;
+                                                        continue;
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    //Te regresa al menú de puertos y puedes volver a accesar
+                                                    Thread.Sleep(1000);
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    Console.WriteLine("ERROR: Registro Inválido");
+                                                    Thread.Sleep(2000);
+                                                    Console.WriteLine("Conexión anulada por el servidor");
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("Presiona cualquier tecla para desconectarte");
+                                                    Console.ReadKey();
+                                                    Thread.Sleep(1000);
+
+                                                    Disconnect();
+                                                    switch2 = false;
+                                                    continue;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                //Te regresa al menú de puertos y puedes volver a accesar
+                                                Thread.Sleep(1000);
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                Console.WriteLine("ERROR: Registro Inválido");
+                                                Thread.Sleep(2000);
+                                                Console.WriteLine("Conexión anulada por el servidor");
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                Console.WriteLine("Presiona cualquier tecla para desconectarte");
+                                                Console.ReadKey();
+                                                Thread.Sleep(1000);
+
+                                                Disconnect();
+                                                switch2 = false;
+                                                continue;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            //Te regresa al menú de puertos y puedes volver a accesar
+                                            Thread.Sleep(1000);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.WriteLine("ERROR: Registro Inválido");
+                                            Thread.Sleep(2000);
+                                            Console.WriteLine("Conexión anulada por el servidor");
+                                            Thread.Sleep(2000);
+                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                            Console.WriteLine("Presiona cualquier tecla para desconectarte");
+                                            Console.ReadKey();
+                                            Thread.Sleep(1000);
+
+                                            Disconnect();
+                                            switch2 = false;
+                                            continue;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        //Te regresa al menú de puertos y puedes volver a accesar
+                                        Thread.Sleep(1000);
+                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                        Console.WriteLine("ERROR: Registro Inválido");
+                                        Thread.Sleep(2000);
+                                        Console.WriteLine("Conexión anulada por el servidor");
+                                        Thread.Sleep(2000);
+                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                        Console.WriteLine("Presiona cualquier tecla para desconectarte");
+                                        Console.ReadKey();
+                                        Thread.Sleep(1000);
+
+                                        Disconnect();
+                                        switch2 = false;
+                                        continue;
+                                    }
                                 }
+                                else
+                                {
+                                    //Te regresa al menú de puertos y puedes volver a accesar
+                                    Thread.Sleep(1000);
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.WriteLine("ERROR: Registro Inválido");
+                                    Thread.Sleep(2000);
+                                    Console.WriteLine("Conexión anulada por el servidor");
+                                    Thread.Sleep(2000);
+                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                    Console.WriteLine("Presiona cualquier tecla para desconectarte");
+                                    Console.ReadKey();
+                                    Thread.Sleep(1000);
 
-                                Console.WriteLine("Decides continuar explorando el lugar, e intentar\nbajar por la cascada");
-                                Thread.Sleep(3000);
-
-                                //Te regresa al menú de puertos y puedes volver a accesar
-                                Disconnect();
-                                switch2 = false;
-                                continue;
+                                    Disconnect();
+                                    switch2 = false;
+                                    continue;
+                                }
                             }
                         }
 
@@ -2854,6 +6811,7 @@ namespace Mainframe
                                         // Desconexión única durante el Combate
                                         if (escapeUnico == true)
                                         {
+                                            Disconnect();
                                             numeroRandom = numRand.Next(1, 21);
 
                                             if (numeroRandom == 20)
@@ -4724,9 +8682,6493 @@ namespace Mainframe
                                         ganarCombate = false;
                                         combateRecompensa = false;
 
+                                        // Limpia la pantalla
+                                        Console.Clear();
+
                                         // Fin del Combate
                                         #endregion
 
+                                        // Combate
+                                        #region
+
+                                        // Pre-establece propiedades del Enemigo dependiendo del Nivel de Combate
+                                        #region
+                                        if (nivelCombate == 1)
+                                        {
+                                            hpEnemigo = numRand.Next(1, 3);
+                                            dañoEnemigo = 1;
+                                        }
+                                        if (nivelCombate == 2)
+                                        {
+                                            hpEnemigo = 2;
+                                            dañoEnemigo = 1;
+                                        }
+                                        if (nivelCombate == 3)
+                                        {
+                                            hpEnemigo = numRand.Next(2, 4);
+                                            dañoEnemigo = numRand.Next(1, 3);
+                                        }
+                                        if (nivelCombate == 4)
+                                        {
+                                            hpEnemigo = numRand.Next(3, 5); ;
+                                            dañoEnemigo = 2;
+                                        }
+                                        if (nivelCombate == 5)
+                                        {
+                                            hpEnemigo = numRand.Next(3, 6);
+                                            dañoEnemigo = numRand.Next(2, 4);
+                                        }
+                                        #endregion
+
+                                        // Loop de Combate - Se reinicia hasta que el enemigo es vencido
+                                        #region
+                                        while (hpEnemigo > 0)
+                                        {
+                                            // Recordatorio de Balas y Baterías
+                                            #region
+                                            Console.Clear();
+                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                            if (balas > 1 && vidas > 1)
+                                            {
+                                                Console.WriteLine("Tienes " + balas + " balas, y " + vidas + " baterías");
+                                            }
+                                            else if (balas > 1 && vidas == 1)
+                                            {
+                                                Console.WriteLine("Tienes " + balas + " balas, y " + vidas + " batería");
+                                            }
+                                            else if (balas == 1 && vidas > 1)
+                                            {
+                                                Console.WriteLine("Tienes " + balas + " bala, y " + vidas + " baterías");
+                                            }
+                                            else if (balas == 0 && vidas > 1)
+                                            {
+                                                Console.WriteLine("Ya no tienes balas, y te quedan " + vidas + " baterías");
+                                            }
+                                            else if (balas == 0 && vidas == 1)
+                                            {
+                                                Console.WriteLine("Ya no tienes balas, y te queda " + vidas + " batería");
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("DEBUG SAFENET: " + balas + " balas / " + vidas + " baterías");
+                                            }
+                                            #endregion
+
+                                            // Menú de Combate
+                                            #region
+                                            Thread.Sleep(2000);
+
+                                            // Muestra la opción de disparar de otro color si no tienes balas
+                                            if (balas == 0)
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                            }
+                                            else
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                            }
+                                            Console.WriteLine("\n1. Disparar");
+
+                                            // Muestra la opción de evadir de otro color si no puedes evadir
+                                            if (evasionEnemigo == false)
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                            }
+                                            else
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                            }
+                                            Console.WriteLine("2. Evadir");
+
+                                            // Muestra una opción más si tienes algún item que puedes usar durante el Combate
+                                            if (items == true)
+                                            {
+                                                Console.WriteLine("3. Usar Item");
+                                            }
+
+                                            // Muestra una opción más si ya no puedes pelear
+                                            if (items == true && evasionEnemigo == false && balas <= 0)
+                                            {
+                                                Console.WriteLine("4. Sin Escape");
+                                            }
+                                            if (items == false && evasionEnemigo == false && balas <= 0)
+                                            {
+                                                Console.WriteLine("3. Sin Escape");
+                                            }
+
+                                            // Muestra una opción más si puedes romper la conexión
+                                            if ((switch1 == true && escape1 == true) || (switch2 == true && escape2 == true) || (switch3 == true && escape3 == true) || (switch4 == true && escape4 == true) || (switch5 == true && escape5 == true) || (switch6 == true && escape6 == true) || (switch7 == true && escape7 == true) || (switch8 == true && escape8 == true) || (switch9 == true && escape9 == true) || (switch10 == true && escape10 == true))
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                                Console.WriteLine("0. Romper conexión");
+                                            }
+
+                                            Thread.Sleep(2500);
+                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                            Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            eleccion = Console.ReadLine();
+                                            Console.Clear();
+
+                                            // Muestra un mensaje si no tienes munición y reinicia el menú
+                                            if (eleccion == "1" && balas == 0)
+                                            {
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                Console.WriteLine("\nTe has quedado sin munición y no puedes disparar");
+                                                Thread.Sleep(3000);
+                                                Console.Clear();
+                                                continue;
+                                            }
+
+                                            // Muestra un mensaje si no puedes evadir la pelea en ese momento y reinicia el menú
+                                            if (eleccion == "2" && evasionEnemigo == false)
+                                            {
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                Console.WriteLine("\nNo puedes evadir la pelea, ¡tus escapes están bloqueados!");
+                                                Thread.Sleep(3000);
+                                                Console.Clear();
+                                                continue;
+                                            }
+
+                                            // Intento de Evasión
+                                            if (eleccion == "2" && evasionEnemigo == true)
+                                            {
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("\nIntentas evadir la pelea y escapar");
+                                                Thread.Sleep(4000);
+
+                                                // Chance de evasión dependiendo del nivel de Combate
+                                                numeroRandom = numRand.Next(1, 101);
+                                                if (nivelCombate == 1)
+                                                {
+                                                    if (numeroRandom <= 60)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 70)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 99)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                        Thread.Sleep(2000);
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                    else if (numeroRandom == 100)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                        Thread.Sleep(3000);
+                                                        evasionEnemigo = false;
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                }
+                                                if (nivelCombate == 2)
+                                                {
+                                                    if (numeroRandom <= 45)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 60)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 95)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                        Thread.Sleep(2000);
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                        Thread.Sleep(3000);
+                                                        evasionEnemigo = false;
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                }
+                                                if (nivelCombate == 3)
+                                                {
+                                                    if (numeroRandom <= 35)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 55)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 92)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                        Thread.Sleep(2000);
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                        Thread.Sleep(3000);
+                                                        evasionEnemigo = false;
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                }
+                                                if (nivelCombate == 4)
+                                                {
+                                                    if (numeroRandom <= 15)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 45)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 85)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                        Thread.Sleep(2000);
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                        Thread.Sleep(3000);
+                                                        evasionEnemigo = false;
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                }
+                                                if (nivelCombate == 5)
+                                                {
+                                                    if (numeroRandom <= 5)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 20)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 70)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                        Thread.Sleep(2000);
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                        Thread.Sleep(3000);
+                                                        evasionEnemigo = false;
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                }
+                                                Console.Clear();
+                                                continue;
+                                            }
+
+                                            // Uso de Items (NULL)
+                                            if (eleccion == "3" && items == true)
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                Console.WriteLine("\nITEMS");
+                                                Thread.Sleep(2000);
+                                                Console.ReadKey();
+                                                Thread.Sleep(1000);
+                                                continue;
+                                            }
+                                            if (eleccion == "3" && items == false && evasionEnemigo == false && balas <= 0)
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                Console.WriteLine("\nSe terminaron tus balas y no puedes huir");
+                                                Thread.Sleep(2000);
+                                                Console.WriteLine("\nEl enemigo aprovecha la situación y te ataca\nlogrando hacerte suficiente daño para terminar\ntu ejecución");
+                                                Thread.Sleep(2000);
+                                                gameOver = true;
+                                                break;
+                                            }
+
+                                            // Ruptura de Conexión Única por Puerto
+                                            if ((eleccion == "0" && switch1 == true && escape1 == true) || (eleccion == "0" && switch2 == true && escape2 == true) || (eleccion == "0" && switch3 == true && escape3 == true) || (eleccion == "0" && switch4 == true && escape4 == true) || (eleccion == "0" && switch5 == true && escape5 == true) || (eleccion == "0" && switch6 == true && escape6 == true) || (eleccion == "0" && switch7 == true && escape7 == true) || (eleccion == "0" && switch8 == true && escape8 == true) || (eleccion == "0" && switch9 == true && escape9 == true) || (eleccion == "0" && switch10 == true && escape10 == true))
+                                            {
+                                                Thread.Sleep(2000);
+                                                Console.Clear();
+                                                Thread.Sleep(1000);
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.WriteLine("ADVERTENCIA: Romper tu conexión durante momentos de alta concentración\nde energía causa una sobrecarga que daña el puerto de manera permanente");
+                                                Thread.Sleep(3000);
+                                                Console.WriteLine("\nLa sobrecarga puede llegar a afectar el flujo de energía en tus sistemas");
+                                                Thread.Sleep(3000);
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("\nPuedes romper tu conexión y regresar al control de accesos de ésta\nforma unicamente una vez por cada puerto");
+                                                Thread.Sleep(2500);
+                                                Console.WriteLine("\nEs posible que la sobrecarga afecte la energía de tus baterías");
+                                                Thread.Sleep(2500);
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                Console.WriteLine("\n1. Continuar y romper la conexión");
+                                                Console.WriteLine("2. Regresar");
+                                                Thread.Sleep(3000);
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                eleccion = Console.ReadLine();
+                                                Thread.Sleep(2000);
+
+                                                // Decidir Romper la Conexión durante el Combate
+                                                if (eleccion == "1")
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    Console.WriteLine("\nDecides terminar la conexión");
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                    Thread.Sleep(3000);
+                                                    Console.ReadKey();
+                                                    Console.Clear();
+
+                                                    // Bloquea la capacidad de romper conexión durante combate en ese puerto
+                                                    #region
+                                                    if (switch1 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape1 = false;
+                                                    }
+                                                    if (switch2 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape2 = false;
+                                                    }
+                                                    if (switch3 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape3 = false;
+                                                    }
+                                                    if (switch4 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape4 = false;
+                                                    }
+                                                    if (switch5 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape5 = false;
+                                                    }
+                                                    if (switch6 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape6 = false;
+                                                    }
+                                                    if (switch7 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape7 = false;
+                                                    }
+                                                    if (switch8 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape8 = false;
+                                                    }
+                                                    if (switch9 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape9 = false;
+                                                    }
+                                                    if (switch10 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape10 = false;
+                                                    }
+                                                    #endregion
+
+                                                    // Rompe el sistema de combate
+                                                    break;
+                                                }
+
+                                                if (eleccion == "2")
+                                                {
+                                                    continue;
+                                                }
+                                            }
+
+                                            // Fin Menú de Combate
+                                            #endregion
+
+                                            // Comienzo del Combate - Ataque del Jugador
+                                            #region
+                                            if (eleccion == "1" && balas > 0)
+                                            {
+                                                balas -= 1;
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                numeroRandom = numRand.Next(1, 6);
+                                                if (numeroRandom == 1)
+                                                    Console.WriteLine("Atacas al enemigo y...");
+                                                if (numeroRandom == 2)
+                                                    Console.WriteLine("Le disparas al enemigo");
+                                                if (numeroRandom == 3)
+                                                    Console.WriteLine("Apuntas con rapidez y disparas");
+                                                if (numeroRandom == 4)
+                                                    Console.WriteLine("Apuntas y disparas...");
+                                                if (numeroRandom == 5)
+                                                    Console.WriteLine("Disparas con tu revólver...");
+                                                Thread.Sleep(3000);
+
+                                                numeroRandom = numRand.Next(1, 21);
+
+                                                if (numeroRandom <= 15)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡Logras atinar el disparo!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡Atinas el disparo!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡Le das con precisión!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡La bala hace contacto!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡Le pegas!");
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("\nLe haces daño al enemigo");
+                                                    Thread.Sleep(3000);
+                                                    hpEnemigo -= 1;
+                                                }
+                                                else if (numeroRandom <= 19)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡Fallas el disparo!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡La bala roza al enemigo!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo esquiva la bala!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡No logras darle!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡Fallas por poco!");
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("\nNo logras hacerle daño al enemigo");
+                                                    Thread.Sleep(3000);
+                                                }
+                                                else if (numeroRandom == 20)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El disparo dá en un lugar crítico!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡Le das en el centro del núcleo!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡Atinas en su punto debil!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡Le das con gran precisión!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡Atinas justo en su núcleo!");
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("\nLe haces un daño considerable al enemigo");
+                                                    Thread.Sleep(3000);
+                                                    hpEnemigo -= 2;
+                                                }
+
+                                                Console.Clear();
+                                                Thread.Sleep(2000);
+                                            }
+                                            #endregion
+
+                                            // Contraataque Enemigo
+                                            #region
+                                            if (hpEnemigo > 0 && nivelCombate == 2)
+                                            {
+                                                numeroRandom = numRand.Next(1, 11);
+                                                if (numeroRandom <= 2)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo contraataca!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo hace un contraataque!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo ataca de regreso!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo ataca de vuelta!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo te contraataca!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+
+                                            if (hpEnemigo > 0 && nivelCombate == 3)
+                                            {
+                                                numeroRandom = numRand.Next(1, 11);
+                                                if (numeroRandom <= 4)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo contraataca!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo hace un contraataque!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo ataca de regreso!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo ataca de vuelta!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo te contraataca!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+
+                                            if (hpEnemigo > 0 && nivelCombate == 4)
+                                            {
+                                                numeroRandom = numRand.Next(1, 11);
+                                                if (numeroRandom <= 5)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo contraataca!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo hace un contraataque!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo ataca de regreso!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo ataca de vuelta!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo te contraataca!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+
+                                            if (hpEnemigo > 0 && nivelCombate == 5)
+                                            {
+                                                numeroRandom = numRand.Next(1, 11);
+                                                if (numeroRandom <= 7)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo contraataca!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo hace un contraataque!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo ataca de regreso!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo ataca de vuelta!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo te contraataca!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+                                            #endregion
+
+                                            // Posibilidad de un segundo contraattaque
+                                            #region
+                                            if (nivelCombate == 2)
+                                            {
+                                                numeroRandom = numRand.Next(1, 100);
+                                                if (numeroRandom <= 5)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo ataca de nuevo!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo vuelve a atacar!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo te ataca otra vez!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo aprovecha para atacar de nuevo!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo ataca otra vez!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+
+                                            if (nivelCombate == 3)
+                                            {
+                                                numeroRandom = numRand.Next(1, 100);
+                                                if (numeroRandom <= 10)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo ataca de nuevo!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo vuelve a atacar!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo te ataca otra vez!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo aprovecha para atacar de nuevo!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo ataca otra vez!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+
+                                            if (nivelCombate == 4)
+                                            {
+                                                numeroRandom = numRand.Next(1, 100);
+                                                if (numeroRandom <= 15)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo ataca de nuevo!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo vuelve a atacar!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo te ataca otra vez!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo aprovecha para atacar de nuevo!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo ataca otra vez!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+
+                                            if (nivelCombate == 5)
+                                            {
+                                                numeroRandom = numRand.Next(1, 100);
+                                                if (numeroRandom <= 20)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo ataca de nuevo!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo vuelve a atacar!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo te ataca otra vez!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo aprovecha para atacar de nuevo!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo ataca otra vez!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+                                            #endregion
+
+                                            continue;
+                                        }
+                                        // Fin loop de Combate
+                                        #endregion
+
+                                        // Desconexión única durante el Combate
+                                        if (escapeUnico == true)
+                                        {
+                                            Disconnect();
+                                            numeroRandom = numRand.Next(1, 21);
+
+                                            if (numeroRandom == 20)
+                                            {
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.WriteLine("La sobrecarga es demasiado fuerte, y afecta 2 de tus baterías");
+                                                Thread.Sleep(2000);
+                                                vidas -= 2;
+
+                                                // Chequeo de GAME OVER
+                                                #region
+                                                if (vidas <= 0)
+                                                {
+                                                    Thread.Sleep(2500);
+                                                    GameOver1();
+                                                    GameOver2();
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                    Thread.Sleep(2000);
+                                                    gameOver = true;
+                                                    break;
+                                                }
+                                                // Si aún tienes vidas
+                                                else
+                                                {
+                                                    Thread.Sleep(2000);
+
+                                                    // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                    if (vidas >= 4)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Tienes " + vidas + " baterías");
+                                                    }
+
+                                                    if (vidas >= 2)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                    }
+
+                                                    if (vidas < 2)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Te queda " + vidas + " batería");
+                                                    }
+
+                                                    Thread.Sleep(2000);
+
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                    Thread.Sleep(2000);
+                                                    Console.ReadKey();
+                                                    Console.Clear();
+                                                }
+                                                #endregion
+                                            }
+
+                                            else if (numeroRandom <= 10)
+                                            {
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.WriteLine("La sobrecarga afecta una de tus baterías,\nfiltrando de golpe su energía");
+                                                Thread.Sleep(2000);
+                                                vidas -= 1;
+
+                                                // Chequeo de GAME OVER
+                                                #region
+                                                if (vidas <= 0)
+                                                {
+                                                    Thread.Sleep(2500);
+                                                    GameOver1();
+                                                    GameOver2();
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                    Thread.Sleep(2000);
+                                                    gameOver = true;
+                                                    break;
+                                                }
+
+                                                // Si aún tienes vidas
+                                                else
+                                                {
+                                                    Thread.Sleep(2000);
+
+                                                    // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                    if (vidas >= 4)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Tienes " + vidas + " baterías");
+                                                    }
+
+                                                    if (vidas >= 2)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                    }
+
+                                                    if (vidas < 2)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Te queda " + vidas + " batería");
+                                                    }
+                                                    Thread.Sleep(2000);
+
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                    Thread.Sleep(2000);
+                                                    Console.ReadKey();
+                                                    Console.Clear();
+
+                                                }
+                                                #endregion
+                                            }
+
+                                            escapeUnico = false;
+
+                                            // Envía al Game Over desde el Combate
+                                            if (gameOver == true)
+                                            {
+                                                break;
+                                            }
+
+                                            // Te regresa al control de accesos
+                                            continue;
+
+                                        }
+
+                                        // Revisa si venciste al Enemigo
+                                        if (hpEnemigo <= 0)
+                                        {
+                                            ganarCombate = true;
+                                            Thread.Sleep(1000);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            numeroRandom = numRand.Next(1, 6);
+                                            if (numeroRandom == 1)
+                                                Console.WriteLine("¡Ganaste el combate!");
+                                            if (numeroRandom == 2)
+                                                Console.WriteLine("Has ganado el combate");
+                                            if (numeroRandom == 3)
+                                                Console.WriteLine("Venciste al enemigo");
+                                            if (numeroRandom == 4)
+                                                Console.WriteLine("Has vencido al enemigo");
+                                            if (numeroRandom == 5)
+                                                Console.WriteLine("¡Ganas el combate!");
+                                            Thread.Sleep(2000);
+                                            Console.Clear();
+                                        }
+
+                                        // Post-Combate
+
+                                        // Recompensa aleatoria si el Enemigo es vencido
+                                        if (ganarCombate == true)
+                                        {
+                                            // Chance de obtener recompensa
+                                            #region
+                                            if (nivelCombate == 1)
+                                            {
+                                                numeroRandom = numRand.Next(1, 101);
+
+                                                if (numeroRandom <= 85)
+                                                {
+                                                    combateRecompensa = true;
+                                                }
+                                                else if (numeroRandom <= 100)
+                                                {
+                                                    // No hay recompensa
+                                                }
+                                            }
+                                            else if (nivelCombate == 2)
+                                            {
+                                                numeroRandom = numRand.Next(1, 101);
+
+                                                if (numeroRandom <= 75)
+                                                {
+                                                    combateRecompensa = true;
+                                                }
+                                                else if (numeroRandom <= 100)
+                                                {
+                                                    // No hay recompensa
+                                                }
+                                            }
+                                            else if (nivelCombate == 3)
+                                            {
+                                                numeroRandom = numRand.Next(1, 101);
+
+                                                if (numeroRandom <= 70)
+                                                {
+                                                    combateRecompensa = true;
+                                                }
+                                                else if (numeroRandom <= 100)
+                                                {
+                                                    // No hay recompensa
+                                                }
+                                            }
+                                            else if (nivelCombate == 4)
+                                            {
+                                                numeroRandom = numRand.Next(1, 101);
+
+                                                if (numeroRandom <= 65)
+                                                {
+                                                    combateRecompensa = true;
+                                                }
+                                                else if (numeroRandom <= 100)
+                                                {
+                                                    // No hay recompensa
+                                                }
+                                            }
+                                            else if (nivelCombate == 5)
+                                            {
+                                                numeroRandom = numRand.Next(1, 101);
+
+                                                if (numeroRandom <= 50)
+                                                {
+                                                    combateRecompensa = true;
+                                                }
+                                                else if (numeroRandom <= 100)
+                                                {
+                                                    // No hay recompensa
+                                                }
+                                            }
+                                            #endregion
+
+                                            // Recompensas
+                                            #region
+                                            if (combateRecompensa == true)
+                                            {
+                                                Thread.Sleep(2000);
+                                                if (nivelCombate == 1)
+                                                {
+                                                    numeroRandom = numRand.Next(1, 101);
+
+                                                    if (numeroRandom <= 85)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 13);
+                                                        if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                            }
+                                                            balas += 1;
+                                                        }
+                                                        else if (numeroRandom <= 6)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 9)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 50 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 50 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 50 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 50;
+                                                        }
+                                                        else if (numeroRandom <= 12)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 100 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 100 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 100 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 100;
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 9);
+                                                        if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        if (numeroRandom <= 8)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                else if (nivelCombate == 2)
+                                                {
+                                                    numeroRandom = numRand.Next(1, 101);
+                                                    if (numeroRandom <= 75)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 13);
+                                                        if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                            }
+                                                            balas += 1;
+                                                        }
+                                                        else if (numeroRandom <= 7)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 9)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 150 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 150 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 150 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 150;
+                                                        }
+                                                        else if (numeroRandom <= 11)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 200 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 200 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 200 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 200;
+                                                        }
+                                                        else if (numeroRandom <= 12)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 250 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 250 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 250 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 250;
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 97)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 9);
+                                                        if (numeroRandom <= 4)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 8)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 7);
+                                                        if (numeroRandom == 1)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos\nbaterías cargadas con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería restante se deshace en ceros y unos");
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos baterías");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        else if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 500 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 500;
+                                                        }
+                                                        else if (numeroRandom == 6)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 800 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 800 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 800;
+                                                        }
+                                                    }
+                                                }
+                                                else if (nivelCombate == 3)
+                                                {
+                                                    numeroRandom = numRand.Next(1, 101);
+                                                    if (numeroRandom <= 60)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 13);
+                                                        if (numeroRandom <= 3)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                            }
+                                                            balas += 1;
+                                                        }
+                                                        else if (numeroRandom <= 7)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 9)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 300 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 300 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 300 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 300;
+                                                        }
+                                                        else if (numeroRandom <= 12)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 350 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 350 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 350 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 350;
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 93)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 9);
+                                                        if (numeroRandom <= 4)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 8)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 8);
+                                                        if (numeroRandom <= 2)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos\nbaterías cargadas con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería restante se deshace en ceros y unos");
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos baterías");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        else if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 500 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 500;
+                                                        }
+                                                        else if (numeroRandom == 6)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 800 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 800 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 800;
+                                                        }
+                                                        else if (numeroRandom == 7)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1000 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 1000 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1000 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 1000;
+                                                        }
+                                                    }
+                                                }
+                                                else if (nivelCombate == 4)
+                                                {
+                                                    numeroRandom = numRand.Next(1, 101);
+                                                    if (numeroRandom <= 45)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 13);
+                                                        if (numeroRandom <= 2)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                            }
+                                                            balas += 1;
+                                                        }
+                                                        else if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 9)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 400 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 400 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 400 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 400;
+                                                        }
+                                                        else if (numeroRandom <= 12)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 450 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 450 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 450 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 450;
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 87)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 9);
+                                                        if (numeroRandom <= 3)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 8)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 8);
+                                                        if (numeroRandom <= 3)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos\nbaterías cargadas con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería restante se deshace en ceros y unos");
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos baterías");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        else if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 500 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 500;
+                                                        }
+                                                        else if (numeroRandom == 6)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 800 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 800 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 800;
+                                                        }
+                                                        else if (numeroRandom == 7)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1000 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 1000 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1000 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 1000;
+                                                        }
+                                                    }
+                                                }
+                                                else if (nivelCombate == 5)
+                                                {
+                                                    numeroRandom = numRand.Next(1, 101);
+                                                    if (numeroRandom <= 30)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 13);
+                                                        if (numeroRandom <= 2)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                            }
+                                                            balas += 1;
+                                                        }
+                                                        else if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 9)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 400 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 400 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 400 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 400;
+                                                        }
+                                                        else if (numeroRandom <= 12)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 450 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 450 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 450 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 450;
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 83)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 9);
+                                                        if (numeroRandom <= 2)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 8)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 8);
+                                                        if (numeroRandom <= 2)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos\nbaterías cargadas con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería restante se deshace en ceros y unos");
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos baterías");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        else if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 800 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 800 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 800 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 800;
+                                                        }
+                                                        else if (numeroRandom == 6)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1000 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 1000 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1000 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 1000;
+                                                        }
+                                                        else if (numeroRandom == 7)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1200 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 1200 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1200 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 1200;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            #endregion
+
+                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                            Thread.Sleep(2000);
+                                            Console.ReadKey();
+                                            Console.Clear();
+                                        }
+
+                                        // Resetea algunos sistemas para el siguiente enemigo
+                                        evasionEnemigo = true;
+                                        ganarCombate = false;
+                                        combateRecompensa = false;
+
+                                        // Limpia la pantalla
+                                        Console.Clear();
+
+                                        // Fin del Combate
+                                        #endregion
+
+                                        // Combate
+                                        #region
+
+                                        // Pre-establece propiedades del Enemigo dependiendo del Nivel de Combate
+                                        #region
+                                        if (nivelCombate == 1)
+                                        {
+                                            hpEnemigo = numRand.Next(1, 3);
+                                            dañoEnemigo = 1;
+                                        }
+                                        if (nivelCombate == 2)
+                                        {
+                                            hpEnemigo = 2;
+                                            dañoEnemigo = 1;
+                                        }
+                                        if (nivelCombate == 3)
+                                        {
+                                            hpEnemigo = numRand.Next(2, 4);
+                                            dañoEnemigo = numRand.Next(1, 3);
+                                        }
+                                        if (nivelCombate == 4)
+                                        {
+                                            hpEnemigo = numRand.Next(3, 5); ;
+                                            dañoEnemigo = 2;
+                                        }
+                                        if (nivelCombate == 5)
+                                        {
+                                            hpEnemigo = numRand.Next(3, 6);
+                                            dañoEnemigo = numRand.Next(2, 4);
+                                        }
+                                        #endregion
+
+                                        // Loop de Combate - Se reinicia hasta que el enemigo es vencido
+                                        #region
+                                        while (hpEnemigo > 0)
+                                        {
+                                            // Recordatorio de Balas y Baterías
+                                            #region
+                                            Console.Clear();
+                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                            if (balas > 1 && vidas > 1)
+                                            {
+                                                Console.WriteLine("Tienes " + balas + " balas, y " + vidas + " baterías");
+                                            }
+                                            else if (balas > 1 && vidas == 1)
+                                            {
+                                                Console.WriteLine("Tienes " + balas + " balas, y " + vidas + " batería");
+                                            }
+                                            else if (balas == 1 && vidas > 1)
+                                            {
+                                                Console.WriteLine("Tienes " + balas + " bala, y " + vidas + " baterías");
+                                            }
+                                            else if (balas == 0 && vidas > 1)
+                                            {
+                                                Console.WriteLine("Ya no tienes balas, y te quedan " + vidas + " baterías");
+                                            }
+                                            else if (balas == 0 && vidas == 1)
+                                            {
+                                                Console.WriteLine("Ya no tienes balas, y te queda " + vidas + " batería");
+                                            }
+                                            else
+                                            {
+                                                Console.WriteLine("DEBUG SAFENET: " + balas + " balas / " + vidas + " baterías");
+                                            }
+                                            #endregion
+
+                                            // Menú de Combate
+                                            #region
+                                            Thread.Sleep(2000);
+
+                                            // Muestra la opción de disparar de otro color si no tienes balas
+                                            if (balas == 0)
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                            }
+                                            else
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                            }
+                                            Console.WriteLine("\n1. Disparar");
+
+                                            // Muestra la opción de evadir de otro color si no puedes evadir
+                                            if (evasionEnemigo == false)
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                            }
+                                            else
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                            }
+                                            Console.WriteLine("2. Evadir");
+
+                                            // Muestra una opción más si tienes algún item que puedes usar durante el Combate
+                                            if (items == true)
+                                            {
+                                                Console.WriteLine("3. Usar Item");
+                                            }
+
+                                            // Muestra una opción más si ya no puedes pelear
+                                            if (items == true && evasionEnemigo == false && balas <= 0)
+                                            {
+                                                Console.WriteLine("4. Sin Escape");
+                                            }
+                                            if (items == false && evasionEnemigo == false && balas <= 0)
+                                            {
+                                                Console.WriteLine("3. Sin Escape");
+                                            }
+
+                                            // Muestra una opción más si puedes romper la conexión
+                                            if ((switch1 == true && escape1 == true) || (switch2 == true && escape2 == true) || (switch3 == true && escape3 == true) || (switch4 == true && escape4 == true) || (switch5 == true && escape5 == true) || (switch6 == true && escape6 == true) || (switch7 == true && escape7 == true) || (switch8 == true && escape8 == true) || (switch9 == true && escape9 == true) || (switch10 == true && escape10 == true))
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.DarkRed;
+                                                Console.WriteLine("0. Romper conexión");
+                                            }
+
+                                            Thread.Sleep(2500);
+                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                            Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            eleccion = Console.ReadLine();
+                                            Console.Clear();
+
+                                            // Muestra un mensaje si no tienes munición y reinicia el menú
+                                            if (eleccion == "1" && balas == 0)
+                                            {
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                Console.WriteLine("\nTe has quedado sin munición y no puedes disparar");
+                                                Thread.Sleep(3000);
+                                                Console.Clear();
+                                                continue;
+                                            }
+
+                                            // Muestra un mensaje si no puedes evadir la pelea en ese momento y reinicia el menú
+                                            if (eleccion == "2" && evasionEnemigo == false)
+                                            {
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                Console.WriteLine("\nNo puedes evadir la pelea, ¡tus escapes están bloqueados!");
+                                                Thread.Sleep(3000);
+                                                Console.Clear();
+                                                continue;
+                                            }
+
+                                            // Intento de Evasión
+                                            if (eleccion == "2" && evasionEnemigo == true)
+                                            {
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("\nIntentas evadir la pelea y escapar");
+                                                Thread.Sleep(4000);
+
+                                                // Chance de evasión dependiendo del nivel de Combate
+                                                numeroRandom = numRand.Next(1, 101);
+                                                if (nivelCombate == 1)
+                                                {
+                                                    if (numeroRandom <= 60)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 70)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 99)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                        Thread.Sleep(2000);
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                    else if (numeroRandom == 100)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                        Thread.Sleep(3000);
+                                                        evasionEnemigo = false;
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                }
+                                                if (nivelCombate == 2)
+                                                {
+                                                    if (numeroRandom <= 45)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 60)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 95)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                        Thread.Sleep(2000);
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                        Thread.Sleep(3000);
+                                                        evasionEnemigo = false;
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                }
+                                                if (nivelCombate == 3)
+                                                {
+                                                    if (numeroRandom <= 35)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 55)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 92)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                        Thread.Sleep(2000);
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                        Thread.Sleep(3000);
+                                                        evasionEnemigo = false;
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                }
+                                                if (nivelCombate == 4)
+                                                {
+                                                    if (numeroRandom <= 15)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 45)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 85)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                        Thread.Sleep(2000);
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                        Thread.Sleep(3000);
+                                                        evasionEnemigo = false;
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                }
+                                                if (nivelCombate == 5)
+                                                {
+                                                    if (numeroRandom <= 5)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar exitosamente");
+                                                        Thread.Sleep(2000);
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 20)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nLogras escapar, pero recibes daño durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        break;
+                                                    }
+                                                    else if (numeroRandom <= 70)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\nCometes un error grave durante tu escape");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\nY se descarga por completo una de tus baterías");
+                                                        Thread.Sleep(2000);
+                                                        vidas -= 1;
+
+                                                        // Chequeo de GAME OVER
+                                                        #region
+                                                        if (vidas <= 0)
+                                                        {
+                                                            Thread.Sleep(2500);
+                                                            GameOver1();
+                                                            GameOver2();
+                                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                            Thread.Sleep(2000);
+                                                            gameOver = true;
+                                                            break;
+                                                        }
+
+                                                        // Si aún tienes vidas
+                                                        else
+                                                        {
+                                                            Thread.Sleep(2000);
+
+                                                            // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                            Console.WriteLine("\n");
+                                                            if (vidas >= 4)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Tienes " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas >= 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                            }
+
+                                                            if (vidas < 2)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Te queda " + vidas + " batería");
+                                                            }
+                                                            Thread.Sleep(2000);
+                                                        }
+                                                        #endregion
+
+                                                        Console.ForegroundColor = ConsoleColor.Cyan;
+                                                        Console.WriteLine("\nFallaste, pero puedes volver a intentarlo");
+                                                        Thread.Sleep(2000);
+
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("\n¡Fallas el escape!");
+                                                        Thread.Sleep(2000);
+                                                        Console.WriteLine("\n¡El enemigo bloquea tu camino y ya no puedes huir!");
+                                                        Thread.Sleep(3000);
+                                                        evasionEnemigo = false;
+                                                        Console.ForegroundColor = ConsoleColor.Gray;
+                                                        Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                        Console.ReadKey();
+                                                        continue;
+                                                    }
+                                                }
+                                                Console.Clear();
+                                                continue;
+                                            }
+
+                                            // Uso de Items (NULL)
+                                            if (eleccion == "3" && items == true)
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                Console.WriteLine("\nITEMS");
+                                                Thread.Sleep(2000);
+                                                Console.ReadKey();
+                                                Thread.Sleep(1000);
+                                                continue;
+                                            }
+                                            if (eleccion == "3" && items == false && evasionEnemigo == false && balas <= 0)
+                                            {
+                                                Console.ForegroundColor = ConsoleColor.Gray;
+                                                Console.WriteLine("\nSe terminaron tus balas y no puedes huir");
+                                                Thread.Sleep(2000);
+                                                Console.WriteLine("\nEl enemigo aprovecha la situación y te ataca\nlogrando hacerte suficiente daño para terminar\ntu ejecución");
+                                                Thread.Sleep(2000);
+                                                gameOver = true;
+                                                break;
+                                            }
+
+                                            // Ruptura de Conexión Única por Puerto
+                                            if ((eleccion == "0" && switch1 == true && escape1 == true) || (eleccion == "0" && switch2 == true && escape2 == true) || (eleccion == "0" && switch3 == true && escape3 == true) || (eleccion == "0" && switch4 == true && escape4 == true) || (eleccion == "0" && switch5 == true && escape5 == true) || (eleccion == "0" && switch6 == true && escape6 == true) || (eleccion == "0" && switch7 == true && escape7 == true) || (eleccion == "0" && switch8 == true && escape8 == true) || (eleccion == "0" && switch9 == true && escape9 == true) || (eleccion == "0" && switch10 == true && escape10 == true))
+                                            {
+                                                Thread.Sleep(2000);
+                                                Console.Clear();
+                                                Thread.Sleep(1000);
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.WriteLine("ADVERTENCIA: Romper tu conexión durante momentos de alta concentración\nde energía causa una sobrecarga que daña el puerto de manera permanente");
+                                                Thread.Sleep(3000);
+                                                Console.WriteLine("\nLa sobrecarga puede llegar a afectar el flujo de energía en tus sistemas");
+                                                Thread.Sleep(3000);
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("\nPuedes romper tu conexión y regresar al control de accesos de ésta\nforma unicamente una vez por cada puerto");
+                                                Thread.Sleep(2500);
+                                                Console.WriteLine("\nEs posible que la sobrecarga afecte la energía de tus baterías");
+                                                Thread.Sleep(2500);
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                Console.WriteLine("\n1. Continuar y romper la conexión");
+                                                Console.WriteLine("2. Regresar");
+                                                Thread.Sleep(3000);
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("\nDigita tu elección y presiona Enter para continuar");
+                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                eleccion = Console.ReadLine();
+                                                Thread.Sleep(2000);
+
+                                                // Decidir Romper la Conexión durante el Combate
+                                                if (eleccion == "1")
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    Console.WriteLine("\nDecides terminar la conexión");
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                    Thread.Sleep(3000);
+                                                    Console.ReadKey();
+                                                    Console.Clear();
+
+                                                    // Bloquea la capacidad de romper conexión durante combate en ese puerto
+                                                    #region
+                                                    if (switch1 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape1 = false;
+                                                    }
+                                                    if (switch2 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape2 = false;
+                                                    }
+                                                    if (switch3 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape3 = false;
+                                                    }
+                                                    if (switch4 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape4 = false;
+                                                    }
+                                                    if (switch5 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape5 = false;
+                                                    }
+                                                    if (switch6 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape6 = false;
+                                                    }
+                                                    if (switch7 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape7 = false;
+                                                    }
+                                                    if (switch8 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape8 = false;
+                                                    }
+                                                    if (switch9 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape9 = false;
+                                                    }
+                                                    if (switch10 == true)
+                                                    {
+                                                        escapeUnico = true;
+                                                        escape10 = false;
+                                                    }
+                                                    #endregion
+
+                                                    // Rompe el sistema de combate
+                                                    break;
+                                                }
+
+                                                if (eleccion == "2")
+                                                {
+                                                    continue;
+                                                }
+                                            }
+
+                                            // Fin Menú de Combate
+                                            #endregion
+
+                                            // Comienzo del Combate - Ataque del Jugador
+                                            #region
+                                            if (eleccion == "1" && balas > 0)
+                                            {
+                                                balas -= 1;
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                numeroRandom = numRand.Next(1, 6);
+                                                if (numeroRandom == 1)
+                                                    Console.WriteLine("Atacas al enemigo y...");
+                                                if (numeroRandom == 2)
+                                                    Console.WriteLine("Le disparas al enemigo");
+                                                if (numeroRandom == 3)
+                                                    Console.WriteLine("Apuntas con rapidez y disparas");
+                                                if (numeroRandom == 4)
+                                                    Console.WriteLine("Apuntas y disparas...");
+                                                if (numeroRandom == 5)
+                                                    Console.WriteLine("Disparas con tu revólver...");
+                                                Thread.Sleep(3000);
+
+                                                numeroRandom = numRand.Next(1, 21);
+
+                                                if (numeroRandom <= 15)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡Logras atinar el disparo!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡Atinas el disparo!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡Le das con precisión!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡La bala hace contacto!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡Le pegas!");
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("\nLe haces daño al enemigo");
+                                                    Thread.Sleep(3000);
+                                                    hpEnemigo -= 1;
+                                                }
+                                                else if (numeroRandom <= 19)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡Fallas el disparo!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡La bala roza al enemigo!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo esquiva la bala!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡No logras darle!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡Fallas por poco!");
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("\nNo logras hacerle daño al enemigo");
+                                                    Thread.Sleep(3000);
+                                                }
+                                                else if (numeroRandom == 20)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El disparo dá en un lugar crítico!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡Le das en el centro del núcleo!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡Atinas en su punto debil!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡Le das con gran precisión!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡Atinas justo en su núcleo!");
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    Console.WriteLine("\nLe haces un daño considerable al enemigo");
+                                                    Thread.Sleep(3000);
+                                                    hpEnemigo -= 2;
+                                                }
+
+                                                Console.Clear();
+                                                Thread.Sleep(2000);
+                                            }
+                                            #endregion
+
+                                            // Contraataque Enemigo
+                                            #region
+                                            if (hpEnemigo > 0 && nivelCombate == 2)
+                                            {
+                                                numeroRandom = numRand.Next(1, 11);
+                                                if (numeroRandom <= 2)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo contraataca!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo hace un contraataque!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo ataca de regreso!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo ataca de vuelta!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo te contraataca!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+
+                                            if (hpEnemigo > 0 && nivelCombate == 3)
+                                            {
+                                                numeroRandom = numRand.Next(1, 11);
+                                                if (numeroRandom <= 4)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo contraataca!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo hace un contraataque!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo ataca de regreso!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo ataca de vuelta!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo te contraataca!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+
+                                            if (hpEnemigo > 0 && nivelCombate == 4)
+                                            {
+                                                numeroRandom = numRand.Next(1, 11);
+                                                if (numeroRandom <= 5)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo contraataca!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo hace un contraataque!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo ataca de regreso!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo ataca de vuelta!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo te contraataca!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+
+                                            if (hpEnemigo > 0 && nivelCombate == 5)
+                                            {
+                                                numeroRandom = numRand.Next(1, 11);
+                                                if (numeroRandom <= 7)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo contraataca!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo hace un contraataque!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo ataca de regreso!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo ataca de vuelta!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo te contraataca!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+                                            #endregion
+
+                                            // Posibilidad de un segundo contraattaque
+                                            #region
+                                            if (nivelCombate == 2)
+                                            {
+                                                numeroRandom = numRand.Next(1, 100);
+                                                if (numeroRandom <= 5)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo ataca de nuevo!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo vuelve a atacar!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo te ataca otra vez!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo aprovecha para atacar de nuevo!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo ataca otra vez!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+
+                                            if (nivelCombate == 3)
+                                            {
+                                                numeroRandom = numRand.Next(1, 100);
+                                                if (numeroRandom <= 10)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo ataca de nuevo!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo vuelve a atacar!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo te ataca otra vez!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo aprovecha para atacar de nuevo!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo ataca otra vez!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+
+                                            if (nivelCombate == 4)
+                                            {
+                                                numeroRandom = numRand.Next(1, 100);
+                                                if (numeroRandom <= 15)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo ataca de nuevo!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo vuelve a atacar!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo te ataca otra vez!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo aprovecha para atacar de nuevo!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo ataca otra vez!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+
+                                            if (nivelCombate == 5)
+                                            {
+                                                numeroRandom = numRand.Next(1, 100);
+                                                if (numeroRandom <= 20)
+                                                {
+                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\n¡El enemigo ataca de nuevo!");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\n¡El enemigo vuelve a atacar!");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\n¡El enemigo te ataca otra vez!");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\n¡El enemigo aprovecha para atacar de nuevo!");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\n¡El enemigo ataca otra vez!");
+
+                                                    Thread.Sleep(2000);
+                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                    numeroRandom = numRand.Next(1, 6);
+                                                    if (numeroRandom == 1)
+                                                        Console.WriteLine("\nY daña una de tus baterías");
+                                                    if (numeroRandom == 2)
+                                                        Console.WriteLine("\nY recibes daño en tus baterías");
+                                                    if (numeroRandom == 3)
+                                                        Console.WriteLine("\nY logra dañar tu energía");
+                                                    if (numeroRandom == 4)
+                                                        Console.WriteLine("\nLogra dañar una de tus baterías");
+                                                    if (numeroRandom == 5)
+                                                        Console.WriteLine("\nRecibes daño en una de tus baterías");
+                                                    vidas -= 1;
+                                                }
+                                            }
+                                            #endregion
+
+                                            continue;
+                                        }
+                                        // Fin loop de Combate
+                                        #endregion
+
+                                        // Desconexión única durante el Combate
+                                        if (escapeUnico == true)
+                                        {
+                                            Disconnect();
+                                            numeroRandom = numRand.Next(1, 21);
+
+                                            if (numeroRandom == 20)
+                                            {
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.WriteLine("La sobrecarga es demasiado fuerte, y afecta 2 de tus baterías");
+                                                Thread.Sleep(2000);
+                                                vidas -= 2;
+
+                                                // Chequeo de GAME OVER
+                                                #region
+                                                if (vidas <= 0)
+                                                {
+                                                    Thread.Sleep(2500);
+                                                    GameOver1();
+                                                    GameOver2();
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                    Thread.Sleep(2000);
+                                                    gameOver = true;
+                                                    break;
+                                                }
+                                                // Si aún tienes vidas
+                                                else
+                                                {
+                                                    Thread.Sleep(2000);
+
+                                                    // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                    if (vidas >= 4)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Tienes " + vidas + " baterías");
+                                                    }
+
+                                                    if (vidas >= 2)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                    }
+
+                                                    if (vidas < 2)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Te queda " + vidas + " batería");
+                                                    }
+
+                                                    Thread.Sleep(2000);
+
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                    Thread.Sleep(2000);
+                                                    Console.ReadKey();
+                                                    Console.Clear();
+                                                }
+                                                #endregion
+                                            }
+
+                                            else if (numeroRandom <= 10)
+                                            {
+                                                Thread.Sleep(2000);
+                                                Console.ForegroundColor = ConsoleColor.Red;
+                                                Console.WriteLine("La sobrecarga afecta una de tus baterías,\nfiltrando de golpe su energía");
+                                                Thread.Sleep(2000);
+                                                vidas -= 1;
+
+                                                // Chequeo de GAME OVER
+                                                #region
+                                                if (vidas <= 0)
+                                                {
+                                                    Thread.Sleep(2500);
+                                                    GameOver1();
+                                                    GameOver2();
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                    Thread.Sleep(2000);
+                                                    gameOver = true;
+                                                    break;
+                                                }
+
+                                                // Si aún tienes vidas
+                                                else
+                                                {
+                                                    Thread.Sleep(2000);
+
+                                                    // Te muestra un mensaje dependiendo de la cantidad de vidas que tienes
+                                                    if (vidas >= 4)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Tienes " + vidas + " baterías");
+                                                    }
+
+                                                    if (vidas >= 2)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Aún te quedan " + vidas + " baterías");
+                                                    }
+
+                                                    if (vidas < 2)
+                                                    {
+                                                        Console.ForegroundColor = ConsoleColor.Yellow;
+                                                        Console.WriteLine("Te queda " + vidas + " batería");
+                                                    }
+                                                    Thread.Sleep(2000);
+
+                                                    Console.ForegroundColor = ConsoleColor.Gray;
+                                                    Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                                    Thread.Sleep(2000);
+                                                    Console.ReadKey();
+                                                    Console.Clear();
+
+                                                }
+                                                #endregion
+                                            }
+
+                                            escapeUnico = false;
+
+                                            // Envía al Game Over desde el Combate
+                                            if (gameOver == true)
+                                            {
+                                                break;
+                                            }
+
+                                            // Te regresa al control de accesos
+                                            continue;
+
+                                        }
+
+                                        // Revisa si venciste al Enemigo
+                                        if (hpEnemigo <= 0)
+                                        {
+                                            ganarCombate = true;
+                                            Thread.Sleep(1000);
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            numeroRandom = numRand.Next(1, 6);
+                                            if (numeroRandom == 1)
+                                                Console.WriteLine("¡Ganaste el combate!");
+                                            if (numeroRandom == 2)
+                                                Console.WriteLine("Has ganado el combate");
+                                            if (numeroRandom == 3)
+                                                Console.WriteLine("Venciste al enemigo");
+                                            if (numeroRandom == 4)
+                                                Console.WriteLine("Has vencido al enemigo");
+                                            if (numeroRandom == 5)
+                                                Console.WriteLine("¡Ganas el combate!");
+                                            Thread.Sleep(2000);
+                                            Console.Clear();
+                                        }
+
+                                        // Post-Combate
+
+                                        // Recompensa aleatoria si el Enemigo es vencido
+                                        if (ganarCombate == true)
+                                        {
+                                            // Chance de obtener recompensa
+                                            #region
+                                            if (nivelCombate == 1)
+                                            {
+                                                numeroRandom = numRand.Next(1, 101);
+
+                                                if (numeroRandom <= 85)
+                                                {
+                                                    combateRecompensa = true;
+                                                }
+                                                else if (numeroRandom <= 100)
+                                                {
+                                                    // No hay recompensa
+                                                }
+                                            }
+                                            else if (nivelCombate == 2)
+                                            {
+                                                numeroRandom = numRand.Next(1, 101);
+
+                                                if (numeroRandom <= 75)
+                                                {
+                                                    combateRecompensa = true;
+                                                }
+                                                else if (numeroRandom <= 100)
+                                                {
+                                                    // No hay recompensa
+                                                }
+                                            }
+                                            else if (nivelCombate == 3)
+                                            {
+                                                numeroRandom = numRand.Next(1, 101);
+
+                                                if (numeroRandom <= 70)
+                                                {
+                                                    combateRecompensa = true;
+                                                }
+                                                else if (numeroRandom <= 100)
+                                                {
+                                                    // No hay recompensa
+                                                }
+                                            }
+                                            else if (nivelCombate == 4)
+                                            {
+                                                numeroRandom = numRand.Next(1, 101);
+
+                                                if (numeroRandom <= 65)
+                                                {
+                                                    combateRecompensa = true;
+                                                }
+                                                else if (numeroRandom <= 100)
+                                                {
+                                                    // No hay recompensa
+                                                }
+                                            }
+                                            else if (nivelCombate == 5)
+                                            {
+                                                numeroRandom = numRand.Next(1, 101);
+
+                                                if (numeroRandom <= 50)
+                                                {
+                                                    combateRecompensa = true;
+                                                }
+                                                else if (numeroRandom <= 100)
+                                                {
+                                                    // No hay recompensa
+                                                }
+                                            }
+                                            #endregion
+
+                                            // Recompensas
+                                            #region
+                                            if (combateRecompensa == true)
+                                            {
+                                                Thread.Sleep(2000);
+                                                if (nivelCombate == 1)
+                                                {
+                                                    numeroRandom = numRand.Next(1, 101);
+
+                                                    if (numeroRandom <= 85)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 13);
+                                                        if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                            }
+                                                            balas += 1;
+                                                        }
+                                                        else if (numeroRandom <= 6)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 9)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 50 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 50 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 50 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 50;
+                                                        }
+                                                        else if (numeroRandom <= 12)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 100 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 100 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 100 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 100;
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 9);
+                                                        if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        if (numeroRandom <= 8)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                else if (nivelCombate == 2)
+                                                {
+                                                    numeroRandom = numRand.Next(1, 101);
+                                                    if (numeroRandom <= 75)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 13);
+                                                        if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                            }
+                                                            balas += 1;
+                                                        }
+                                                        else if (numeroRandom <= 7)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 9)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 150 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 150 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 150 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 150;
+                                                        }
+                                                        else if (numeroRandom <= 11)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 200 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 200 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 200 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 200;
+                                                        }
+                                                        else if (numeroRandom <= 12)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 250 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 250 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 250 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 250;
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 97)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 9);
+                                                        if (numeroRandom <= 4)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 8)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 7);
+                                                        if (numeroRandom == 1)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos\nbaterías cargadas con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería restante se deshace en ceros y unos");
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos baterías");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        else if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 500 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 500;
+                                                        }
+                                                        else if (numeroRandom == 6)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 800 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 800 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 800;
+                                                        }
+                                                    }
+                                                }
+                                                else if (nivelCombate == 3)
+                                                {
+                                                    numeroRandom = numRand.Next(1, 101);
+                                                    if (numeroRandom <= 60)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 13);
+                                                        if (numeroRandom <= 3)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                            }
+                                                            balas += 1;
+                                                        }
+                                                        else if (numeroRandom <= 7)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 9)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 300 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 300 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 300 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 300;
+                                                        }
+                                                        else if (numeroRandom <= 12)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 350 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 350 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 350 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 350;
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 93)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 9);
+                                                        if (numeroRandom <= 4)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 8)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 8);
+                                                        if (numeroRandom <= 2)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos\nbaterías cargadas con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería restante se deshace en ceros y unos");
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos baterías");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        else if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 500 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 500;
+                                                        }
+                                                        else if (numeroRandom == 6)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 800 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 800 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 800;
+                                                        }
+                                                        else if (numeroRandom == 7)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1000 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 1000 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1000 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 1000;
+                                                        }
+                                                    }
+                                                }
+                                                else if (nivelCombate == 4)
+                                                {
+                                                    numeroRandom = numRand.Next(1, 101);
+                                                    if (numeroRandom <= 45)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 13);
+                                                        if (numeroRandom <= 2)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                            }
+                                                            balas += 1;
+                                                        }
+                                                        else if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 9)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 400 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 400 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 400 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 400;
+                                                        }
+                                                        else if (numeroRandom <= 12)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 450 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 450 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 450 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 450;
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 87)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 9);
+                                                        if (numeroRandom <= 3)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 8)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 8);
+                                                        if (numeroRandom <= 3)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos\nbaterías cargadas con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería restante se deshace en ceros y unos");
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos baterías");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        else if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 500 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 500;
+                                                        }
+                                                        else if (numeroRandom == 6)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 800 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 800 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 500 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 800;
+                                                        }
+                                                        else if (numeroRandom == 7)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1000 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 1000 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1000 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 1000;
+                                                        }
+                                                    }
+                                                }
+                                                else if (nivelCombate == 5)
+                                                {
+                                                    numeroRandom = numRand.Next(1, 101);
+                                                    if (numeroRandom <= 30)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 13);
+                                                        if (numeroRandom <= 2)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas el brillo de un pequeño\nnúcleo azúl de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLo recolectas, añadiéndo una bala adicional a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras un núcleo de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLo recolectas agregando una bala extra a tus recursos");
+                                                            }
+                                                            balas += 1;
+                                                        }
+                                                        else if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 9)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 400 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 400 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 400 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 400;
+                                                        }
+                                                        else if (numeroRandom <= 12)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 450 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 450 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 450 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 450;
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 83)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 9);
+                                                        if (numeroRandom <= 2)
+                                                        {
+                                                            if (primerBala == true)
+                                                            {
+                                                                primerBala = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y notas dos pequeños\nnúcleos azúles de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nTu revólver está programado para convertir munición\ndígital de cualquier tipo");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, añadiéndo dos balas adicionales a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de balas");
+                                                            }
+                                                            else if (primerBala == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área, y encuentras dos núcleos de munición");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos recolectas agregando dos balas extras a tus recursos");
+                                                            }
+                                                            balas += 2;
+                                                        }
+                                                        else if (numeroRandom <= 8)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una\nbatería cargada con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras una batería");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarla contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería se deshace en ceros y unos");
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    else if (numeroRandom <= 100)
+                                                    {
+                                                        numeroRandom = numRand.Next(1, 8);
+                                                        if (numeroRandom <= 2)
+                                                        {
+                                                            if (primerBateria == true)
+                                                            {
+                                                                primerBateria = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos\nbaterías cargadas con energía");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nPuedes tener hasta 5 baterías");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLa batería restante se deshace en ceros y unos");
+                                                                }
+                                                            }
+                                                            else if (primerBateria == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras dos baterías");
+                                                                Thread.Sleep(2000);
+                                                                if (vidas >= 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero no puedes llevarlas contigo");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLas baterías se deshacen en ceros y unos");
+                                                                }
+                                                                else if (vidas < 4)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nLas recolectas agregando dos cargas de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 2;
+                                                                }
+                                                                else if (vidas < 5)
+                                                                {
+                                                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                    Console.WriteLine("\nPero únicamente puedes llevar contigo una más");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.WriteLine("\nLa recolectas agregando una carga de energía a tus recursos");
+                                                                    Thread.Sleep(2000);
+                                                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                    Console.WriteLine("\nTienes " + vidas + " baterías");
+                                                                    vidas += 1;
+                                                                }
+                                                            }
+                                                        }
+                                                        else if (numeroRandom <= 5)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 800 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 800 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 800 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 800;
+                                                        }
+                                                        else if (numeroRandom == 6)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1000 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 1000 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1000 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 1000;
+                                                        }
+                                                        else if (numeroRandom == 7)
+                                                        {
+                                                            if (primerBit == true)
+                                                            {
+                                                                primerBit = false;
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1200 pequeños\ncubos de energía cruda conocidos cómo Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nLos Bits pueden tener varios usos en el plano digital");
+                                                                Thread.Sleep(2000);
+                                                                Console.WriteLine("\nLos recolectas, agregando 1200 Bits a tus recursos");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("\nPuedes tener un número ilimitado de Bits");
+                                                            }
+                                                            else if (primerBit == false)
+                                                            {
+                                                                Console.ForegroundColor = ConsoleColor.Yellow;
+                                                                Console.WriteLine("Revisas el área y encuentras 1200 Bits");
+                                                                Thread.Sleep(2000);
+                                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                                Console.WriteLine("\nAgregas los Bits a tus recursos");
+                                                            }
+                                                            bits += 1200;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            #endregion
+
+                                            Console.ForegroundColor = ConsoleColor.Gray;
+                                            Console.WriteLine("\nPresiona cualquier tecla para continuar");
+                                            Thread.Sleep(2000);
+                                            Console.ReadKey();
+                                            Console.Clear();
+                                        }
+
+                                        // Resetea algunos sistemas para el siguiente enemigo
+                                        evasionEnemigo = true;
+                                        ganarCombate = false;
+                                        combateRecompensa = false;
+
+                                        // Limpia la pantalla
+                                        Console.Clear();
+
+                                        // Fin del Combate
+                                        #endregion
 
                                     }
                                 }
@@ -4880,16 +15322,191 @@ namespace Mainframe
                                         Console.WriteLine("6. Baterías de Energía - 3 Baterías x 1200 Bits");
                                         Console.WriteLine("7. Batería de Respaldo - 1 Batería x 1000 Bits");
                                         Console.WriteLine("8. Programa de Antivirus - 1 Programa x 1500 Bits");
-                                        Console.WriteLine("9. Programa Buscador - Archivo Único x 2000 Bits");
-                                        Console.WriteLine("10. Alimento para Gatos - Archivo Único x 3000 Bits");
-                                        Console.WriteLine("11. Regresar al menú anterior");
-                                        Console.WriteLine("0. Salir de la Base de Datos");
+                                        Console.WriteLine("9. Regresar al menú anterior");
+                                        Console.WriteLine("10. Salir de la Base de Datos");
                                         Thread.Sleep(3000);
+
+                                        Console.ForegroundColor = ConsoleColor.DarkYellow;
+                                        if (balas <= 0)
+                                        {
+                                            Console.WriteLine("\nActualmente no tienes munición");
+                                            Thread.Sleep(1000);
+                                        }
+                                        else if (balas == 1)
+                                        {
+                                            Console.WriteLine("\nActualmente tienes " + balas + " bala");
+                                            Thread.Sleep(1000);
+                                        }
+                                        else if (balas >= 2)
+                                        {
+                                            Console.WriteLine("\nActualmente tienes " + balas + " balas");
+                                            Thread.Sleep(1000);
+                                        }
+                                        if (vidas == 1)
+                                        {
+                                            Console.WriteLine("Y te queda " + vidas + " batería");
+                                            Thread.Sleep(1000);
+                                        }
+                                        else if (vidas > 1)
+                                        {
+                                            Console.WriteLine("Y te quedan " + vidas + " baterías");
+                                            Thread.Sleep(1000);
+                                        }
+
                                         Console.ForegroundColor = ConsoleColor.Gray;
                                         Console.WriteLine("\nDigita el número de tu elección y presiona Enter");
                                         Console.ForegroundColor = ConsoleColor.Yellow;
                                         eleccion = Console.ReadLine();
+                                        Thread.Sleep(1000);
                                         Console.Clear();
+
+                                        if (eleccion == "10")
+                                        {
+                                            break;
+                                        }
+
+                                        if (eleccion == "9")
+                                        {
+                                            continue;
+                                        }
+
+                                        if (eleccion == "1" && bits > 149)
+                                        {
+                                            bits -= 150;
+                                            balas += 1;
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.WriteLine("Has agregado 1 bala a tus recursos");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+                                        else if (eleccion == "1" && bits < 150)
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Red;
+                                            Console.WriteLine("Error: Datos Insuficientes");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+
+                                        if (eleccion == "2" && bits > 249)
+                                        {
+                                            bits -= 250;
+                                            balas += 2;
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.WriteLine("Has agregado 2 balas a tus recursos");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+                                        else if (eleccion == "2" && bits < 250)
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Red;
+                                            Console.WriteLine("Error: Datos Insuficientes");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+
+                                        if (eleccion == "3" && bits > 399)
+                                        {
+                                            bits -= 400;
+                                            balas += 3;
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.WriteLine("Has agregado 3 balas a tus recursos");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+                                        else if (eleccion == "3" && bits < 400)
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Red;
+                                            Console.WriteLine("Error: Datos Insuficientes");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+
+                                        if (vidas < 5 && eleccion == "4" && bits > 499)
+                                        {
+                                            bits -= 500;
+                                            vidas += 1;
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.WriteLine("Has agregado 1 batería a tus recursos");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+                                        else if (vidas > 4 && eleccion == "4")
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Red;
+                                            Console.WriteLine("Error: Estás en tu límite de energía");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+                                        else if (eleccion == "4" && bits < 500)
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Red;
+                                            Console.WriteLine("Error: Datos Insuficientes");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+
+                                        if (vidas < 4 && eleccion == "5" && bits > 849)
+                                        {
+                                            bits -= 850;
+                                            vidas += 2;
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.WriteLine("Has agregado 2 baterías a tus recursos");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+                                        else if (vidas > 3 && eleccion == "4")
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Red;
+                                            Console.WriteLine("Error: No puedes sobrepasar tu límite de energía");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+                                        else if (eleccion == "5" && bits < 850)
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Red;
+                                            Console.WriteLine("Error: Datos Insuficientes");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+
+                                        if (vidas < 3 && eleccion == "6" && bits > 1199)
+                                        {
+                                            bits -= 1200;
+                                            vidas += 3;
+                                            Console.ForegroundColor = ConsoleColor.Yellow;
+                                            Console.WriteLine("Has agregado 3 baterías a tus recursos");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+                                        else if (vidas > 2 && eleccion == "6")
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Red;
+                                            Console.WriteLine("Error: No puedes sobrepasar tu límite de energía");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
+                                        else if (eleccion == "6" && bits < 1200)
+                                        {
+                                            Console.ForegroundColor = ConsoleColor.Red;
+                                            Console.WriteLine("Error: Datos Insuficientes");
+                                            Thread.Sleep(2500);
+                                            Console.Clear();
+                                            continue;
+                                        }
                                     }
                                     else if (eleccion == "2")
                                     {
@@ -4897,6 +15514,7 @@ namespace Mainframe
                                         Console.ForegroundColor = ConsoleColor.Yellow;
                                         Console.WriteLine("Documentación de Apoyo");
                                         Console.WriteLine("\nAccesar a archivos en la base de datos requiere un\nintercambio de información");
+                                        Console.WriteLine("\nERROR: IMPOSIBLE ACCESAR A LA SIGUIENTE INFORMACIÓN");
                                         Console.ForegroundColor= ConsoleColor.DarkYellow;
                                         Console.WriteLine("\nBatería de Respaldo: Le permite al usuario/a recuperar 1\ncarga de Batería durante combate");
                                         Console.WriteLine("\nPrograma de Antivirus: Elimina instantáneamente cualquier\nprograma malicioso durante combate");
@@ -4904,7 +15522,7 @@ namespace Mainframe
                                         Console.WriteLine("\nAlimento para Gatos: Uso desconocido");
                                         Thread.Sleep(3000);
                                         Console.ForegroundColor = ConsoleColor.Gray;
-                                        Console.WriteLine("\nPresiona cualquier tecla para regresar al menú");
+                                        Console.WriteLine("\nPresiona cualquier tecla para regresar al menú anterior");
                                         Console.ReadKey();
                                         Thread.Sleep(1000);
                                         Console.Clear();
@@ -4951,6 +15569,7 @@ namespace Mainframe
 
                             }
 
+                            Disconnect();
                             switch5 = false;
                             continue;
                         }
